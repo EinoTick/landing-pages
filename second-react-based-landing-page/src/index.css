@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --color-border: oklch(0.278 0.033 256.848);
+  --color-ring: oklch(0.551 0.175 264.364);
+  --color-input: oklch(0.278 0.033 256.848);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+}
