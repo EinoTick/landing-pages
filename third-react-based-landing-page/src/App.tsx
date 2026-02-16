@@ -9,34 +9,6 @@ import {u} from "framer-motion/m";
 
 function App() {
 
-
-  const selectionSort = (arr: number[]) => {
-    const sortedArray = arr.slice()
-    for (let i=0; i<arr.length; i++) {
-      let smallestValue = sortedArray[i]
-      let smallestValuePosition = i
-      for (let u=i; u<arr.length; u++) {
-        if (sortedArray[u] < smallestValue) {
-          smallestValue = sortedArray[u]
-          smallestValuePosition = u
-        }
-      }
-      if (smallestValuePosition !== i) {
-        const temp = sortedArray[i]
-        sortedArray[i] = sortedArray[smallestValuePosition]
-        sortedArray[smallestValuePosition] = temp
-      }
-    }
-
-    console.log('Original Array: ', arr)
-    console.log('Sorted Array: ', sortedArray)
-  }
-
-  selectionSort([1,5,2,3,7,6,9,3])
-
-
-
-
   return (
     <Layout>
       <Navbar />
