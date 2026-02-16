@@ -14,7 +14,7 @@ export function TestingCard() {
         <motion.div
           className="absolute inset-0 rounded-lg"
           style={{
-            background: "linear-gradient(90deg, transparent 0%, rgba(34, 197, 94, 0.2) 50%, transparent 100%)",
+            background: "linear-gradient(90deg, transparent 0%, rgba(34, 197, 94, 0.12) 50%, transparent 100%)",
             backgroundSize: "200% 100%",
           }}
           animate={{
