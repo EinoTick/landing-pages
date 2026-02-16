@@ -9,6 +9,9 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-slate-950 text-slate-50;
   }
