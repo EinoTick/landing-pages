@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCounters();
   initMobileMenu();
   initNewsletterForm();
+  testFunction();
 });
 
 function initMobileMenu() {
@@ -60,4 +61,30 @@ function initNewsletterForm() {
       }
     }
   });
+}
+
+const cartItems = [
+  { name: "Smartphone", category: "electronics", price: 800 },
+  { name: "T-shirt", category: "clothing", price: 25 },
+  { name: "Laptop", category: "electronics", price: 1200 },
+  { name: "Coffee Maker", category: "home", price: 100 },
+  { name: "Bluetooth Speaker", category: "electronics", price: 150 },
+  { name: "Jeans", category: "clothing", price: 60 }
+];
+
+
+const testFunction = () => {
+  console.log('testFunction');
+  console.log(discountedShoppingSpeed(cartItems))
+}
+
+
+
+
+const discountedShoppingSpeed = (arr) => {
+  return arr.filter((item) => item.category === 'electronics')
+    .map((item) => item.price * 0.9)
+    .reduce((val, acc) => {
+      return acc  + val;
+    }, 0)
 }
