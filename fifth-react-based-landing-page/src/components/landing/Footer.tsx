@@ -28,9 +28,9 @@ export function Footer() {
               "0 4px 24px -4px rgba(0,0,0,0.4), 0 8px 32px -8px rgba(99, 102, 241, 0.15)",
           }}
         >
-          {/* Dot grid texture */}
+          {/* Dot grid texture (inset so dots don't touch the border) */}
           <div
-            className="absolute inset-0 rounded-2xl opacity-[0.05] pointer-events-none z-[1]"
+            className="absolute inset-3 rounded-xl opacity-[0.05] pointer-events-none z-[1]"
             style={{
               backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 0)`,
               backgroundSize: "24px 24px",
