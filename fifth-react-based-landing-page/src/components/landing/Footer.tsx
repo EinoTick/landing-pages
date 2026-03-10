@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Github, Linkedin, Mail, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
@@ -20,24 +20,46 @@ export function Footer() {
       {/* Pre-footer CTA */}
       <div className="max-w-4xl mx-auto px-4 pt-16 pb-20">
         <div
-          className="relative rounded-2xl overflow-hidden py-16 px-8 text-center sm:py-20 sm:px-12"
+          className="relative rounded-2xl overflow-hidden py-16 px-8 text-center sm:py-20 sm:px-12 border border-white/10"
           style={{
             background:
-              "linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.06) 50%, rgba(99, 102, 241, 0.04) 100%)",
-            boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.06)",
+              "radial-gradient(ellipse 80% 70% at 50% 0%, rgba(99, 102, 241, 0.18) 0%, rgba(139, 92, 246, 0.12) 35%, rgba(99, 102, 241, 0.06) 60%, transparent 100%), radial-gradient(ellipse 60% 50% at 50% 100%, rgba(59, 130, 246, 0.08) 0%, transparent 70%)",
+            boxShadow:
+              "0 4px 24px -4px rgba(0,0,0,0.4), 0 8px 32px -8px rgba(99, 102, 241, 0.15)",
           }}
         >
-          <div className="absolute inset-0 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm" />
+          {/* Dot grid texture */}
+          <div
+            className="absolute inset-0 rounded-2xl opacity-[0.05] pointer-events-none z-[1]"
+            style={{
+              backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 0)`,
+              backgroundSize: "24px 24px",
+            }}
+          />
+          <div className="absolute inset-0 backdrop-blur-sm z-0" aria-hidden />
           <div className="relative z-10">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2
+              className="text-3xl font-bold tracking-tight sm:text-4xl bg-clip-text text-transparent"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, rgb(165, 180, 252) 0%, rgb(196, 181, 253) 50%, rgb(129, 140, 248) 100%)",
+              }}
+            >
               Ready to start your project?
             </h2>
-            <p className="mt-3 text-white/70 text-lg max-w-md mx-auto">
+            <p className="mt-3 text-slate-400 text-lg max-w-md mx-auto">
               Let's build something that scales. Get in touch and we'll respond within 24 hours.
             </p>
             <div className="mt-8">
-              <Button size="lg" className="text-base px-8 py-6 h-auto font-semibold" asChild>
-                <a href="#contact">Get in Touch</a>
+              <Button
+                size="lg"
+                className="group text-base px-8 py-6 h-auto font-semibold transition-transform duration-200 hover:scale-105 focus:scale-105 active:scale-[1.02]"
+                asChild
+              >
+                <a href="#contact" className="inline-flex items-center gap-2">
+                  Get in Touch
+                  <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </a>
               </Button>
             </div>
           </div>
