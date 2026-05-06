@@ -39,7 +39,7 @@ export function Footer() {
           <div className="absolute inset-0 backdrop-blur-sm z-0" aria-hidden />
           <div className="relative z-10">
             <h2
-              className="text-3xl font-bold tracking-tight sm:text-4xl bg-clip-text text-transparent"
+              className="inline-block pb-1 text-3xl font-bold leading-[1.15] tracking-tight sm:text-4xl bg-clip-text text-transparent"
               style={{
                 backgroundImage:
                   "linear-gradient(135deg, rgb(165, 180, 252) 0%, rgb(196, 181, 253) 50%, rgb(129, 140, 248) 100%)",
