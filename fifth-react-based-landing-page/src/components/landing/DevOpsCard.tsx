@@ -42,47 +42,43 @@ export function DevOpsCard() {
         </CardHeader>
         
         <CardContent className="relative z-10 space-y-4">
-          <div className="relative py-6">
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 120">
-              <motion.path
-                d="M 20 60 Q 60 20, 100 40 T 180 60"
-                stroke="url(#gradient)"
-                strokeWidth="2"
-                fill="none"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 2, ease: "easeInOut" }}
-              />
-              <defs>
-                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
-                  <stop offset="50%" stopColor="#6366f1" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.8" />
-                </linearGradient>
-              </defs>
-            </svg>
-            
-            <div className="relative flex items-center justify-between">
+          <div className="py-6">
+            <div className="flex items-center justify-center">
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-col items-center gap-2"
+                className="p-2 rounded-lg bg-violet-500/20 border border-violet-500/30"
               >
-                <div className="p-2 rounded-lg bg-violet-500/20 border border-violet-500/30">
-                  <GitBranch className="w-4 h-4 text-violet-400" />
-                </div>
-                <span className="text-xs text-white/60">Git Commit</span>
+                <GitBranch className="w-4 h-4 text-violet-400" />
               </motion.div>
-              
+
+              <motion.div
+                className="h-[2px] flex-grow mx-4 bg-violet-500/30"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.5, delay: 0.45, ease: "easeInOut" }}
+                style={{ transformOrigin: "left center" }}
+              />
+
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.6 }}
-                className="flex flex-col items-center gap-2"
+                className="relative p-3 rounded-lg bg-indigo-500/20 border border-indigo-500/30"
               >
                 <motion.div
-                  className="relative p-3 rounded-lg bg-indigo-500/20 border border-indigo-500/30"
+                  className="absolute inset-0 rounded-lg bg-indigo-500/30 blur-sm"
+                  animate={{
+                    opacity: [0.6, 1, 0.6],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+                <motion.div
                   animate={{
                     boxShadow: [
                       "0 0 10px rgba(99, 102, 241, 0.5)",
@@ -95,24 +91,34 @@ export function DevOpsCard() {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
+                  className="relative rounded-lg"
                 >
-                  <div className="absolute inset-0 rounded-lg bg-indigo-500/30 blur-sm" />
                   <Container className="relative w-5 h-5 text-indigo-300" />
                 </motion.div>
-                <span className="text-xs text-white/60">Docker</span>
               </motion.div>
-              
+
+              <motion.div
+                className="h-[2px] flex-grow mx-4 bg-violet-500/30"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.5, delay: 0.75, ease: "easeInOut" }}
+                style={{ transformOrigin: "left center" }}
+              />
+
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.9 }}
-                className="flex flex-col items-center gap-2"
+                className="p-2 rounded-lg bg-green-500/20 border border-green-500/30"
               >
-                <div className="p-2 rounded-lg bg-green-500/20 border border-green-500/30">
-                  <Rocket className="w-4 h-4 text-green-400" />
-                </div>
-                <span className="text-xs text-white/60">Production</span>
+                <Rocket className="w-4 h-4 text-green-400" />
               </motion.div>
+            </div>
+
+            <div className="mt-3 grid grid-cols-3 text-xs text-white/60">
+              <span className="text-left">Git Commit</span>
+              <span className="text-center">Docker</span>
+              <span className="text-right">Production</span>
             </div>
           </div>
         </CardContent>
