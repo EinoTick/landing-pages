@@ -44,7 +44,8 @@ const plans = [
       "Performance monitoring",
       "Continuous feature development",
     ],
-    cta: "Start retainer",
+    cta: "Check Availability",
+    note: "Limited to 3 ongoing clients.",
     featured: false,
   },
 ]
@@ -103,7 +104,7 @@ export function PricingCards() {
                     </div>
                   ))}
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="flex flex-col items-stretch gap-2">
                   <Button
                     variant={plan.featured ? "default" : "outline"}
                     className="w-full"
@@ -111,6 +112,11 @@ export function PricingCards() {
                   >
                     {plan.cta}
                   </Button>
+                  {"note" in plan && plan.note ? (
+                    <p className="text-[11px] text-white/45 text-center tracking-wide">
+                      {plan.note}
+                    </p>
+                  ) : null}
                 </CardFooter>
               </Card>
             </motion.div>

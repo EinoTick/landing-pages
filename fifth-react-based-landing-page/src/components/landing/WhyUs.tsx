@@ -31,7 +31,28 @@ const reasons = [
 
 export function WhyUs() {
   return (
-    <section className="py-24 px-4">
+    <section className="relative isolate py-24 px-4">
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[#010411]"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10"
+        style={{
+          backgroundImage:
+            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(99, 102, 241, 0.07) 0%, transparent 60%), radial-gradient(ellipse 80% 50% at 50% 100%, rgba(99, 102, 241, 0.05) 0%, transparent 60%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
+      />
+
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

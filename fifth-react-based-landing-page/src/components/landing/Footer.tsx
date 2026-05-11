@@ -58,7 +58,7 @@ export function Footer() {
                 asChild
               >
                 <a href="#contact" className="inline-flex items-center gap-2">
-                  Get in Touch
+                  Tell me about your project
                   <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </a>
               </Button>

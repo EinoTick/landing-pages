@@ -8,6 +8,7 @@ import { PerformanceCard } from "./components/landing/PerformanceCard"
 import { PricingCards } from "./components/landing/PricingCards"
 import { WhyUs } from "./components/landing/WhyUs"
 import { RecentWork } from "./components/landing/RecentWork"
+import { AboutMe } from "./components/landing/AboutMe"
 import { Footer } from "./components/landing/Footer"
 
 function App() {
@@ -36,6 +37,8 @@ function App() {
         <section id="pricing">
           <PricingCards />
         </section>
+
+        <AboutMe />
 
         <Footer />
       </div>
