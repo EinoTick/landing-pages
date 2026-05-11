@@ -38,7 +38,7 @@ export function FullStackCard() {
             <CardTitle className="text-3xl">Full-Stack Capabilities</CardTitle>
           </div>
           <CardDescription className="text-base text-white/70">
-            End-to-end development from frontend to backend infrastructure
+            I own the entire stack—frontend, API, database, and deploy.
           </CardDescription>
         </CardHeader>
         
@@ -61,15 +61,15 @@ export function FullStackCard() {
           <div className="space-y-3 pt-4">
             <div className="flex items-center gap-3 text-sm text-white/80">
               <div className="w-2 h-2 rounded-full bg-indigo-400" />
-              <span>Custom React applications tailored to your needs</span>
+              <span>SaaS MVPs built to ship—not to demo</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-white/80">
               <div className="w-2 h-2 rounded-full bg-violet-400" />
-              <span>High-performance landing pages optimized for conversion</span>
+              <span>Custom internal tools and complex workflow platforms</span>
             </div>
             <div className="flex items-center gap-3 text-sm text-white/80">
               <div className="w-2 h-2 rounded-full bg-indigo-400" />
-              <span>Scalable backend architecture ready for growth</span>
+              <span>Typed APIs and clean, scalable backend architecture</span>
             </div>
           </div>
         </CardContent>

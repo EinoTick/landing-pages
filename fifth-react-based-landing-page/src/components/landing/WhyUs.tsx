@@ -5,27 +5,27 @@ import { Card, CardContent } from "@/components/ui/card"
 const reasons = [
   {
     icon: Code2,
-    title: "Ship fast, ship right",
+    title: "You work with me, directly",
     description:
-      "No agency overhead—you work directly with a senior engineer who writes production code. From idea to deploy in weeks, not months.",
+      "No account managers, no junior hand-offs. You get a senior engineer who writes the architecture, the code, and the deploy scripts—same person from kickoff to launch.",
   },
   {
     icon: Zap,
-    title: "Built for performance",
+    title: "Built for production, not demos",
     description:
-      "Every project is optimized for Core Web Vitals and real-world load. Your users get a fast experience; you get better conversion and SEO.",
+      "I ship apps that hold up under real users and real load—typed end-to-end, observable, and tuned for Core Web Vitals before anyone asks.",
   },
   {
     icon: Shield,
-    title: "Tested and maintainable",
+    title: "Tested, typed, maintainable",
     description:
-      "Vitest, Cypress, and TypeScript are standard. You get a codebase that’s safe to change and easy to hand off or extend later.",
+      "TypeScript, Vitest, and Playwright are standard. You inherit a codebase that's safe to change, easy to extend, and ready to hand off to your future team.",
   },
   {
     icon: MessageCircle,
-    title: "Clear communication",
+    title: "Honest, async communication",
     description:
-      "No account managers or long email chains. Direct collaboration, realistic timelines, and honest estimates from day one.",
+      "Clear scopes, realistic timelines, and weekly written updates. No status meetings, no vague estimates—just steady progress you can actually see.",
   },
 ]
 
@@ -40,10 +40,10 @@ export function WhyUs() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
-            Why choose us
+            Why work with me
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            The best way to get a React app or landing page that actually performs—without the agency tax.
+            A focused, senior alternative to agencies—without the overhead, hand-offs, or surprise invoices.
           </p>
         </motion.div>
 
@@ -61,10 +61,10 @@ export function WhyUs() {
                   <div className="p-2.5 rounded-lg bg-indigo-500/20 border border-indigo-500/30 w-fit mb-4">
                     <item.icon className="w-5 h-5 text-indigo-400" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="text-xl font-semibold text-white mb-3">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-white/70 leading-relaxed">
+                  <p className="text-base md:text-[17px] text-white/80 leading-7 md:leading-8">
                     {item.description}
                   </p>
                 </CardContent>

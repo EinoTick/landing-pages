@@ -12,14 +12,14 @@ export function Hero() {
         className="space-y-4"
       >
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
-          Engineered for Growth.
+          Production-Ready Web
           <br />
-          Built for Scale.
+          Applications & Custom Platforms.
         </h1>
         <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto">
-          Custom React applications and high-performance landing pages
+          Senior-level development for SaaS MVPs and complex internal tools—
           <br />
-          designed to accelerate your startup's growth
+          built and shipped by one engineer who owns the entire stack.
         </p>
       </motion.div>
       
@@ -30,11 +30,11 @@ export function Hero() {
         className="flex items-center justify-center gap-4"
       >
         <Button size="lg" className="group">
-          Get Started
+          Start Your Project
           <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Button>
         <Button size="lg" variant="outline">
-          View Portfolio
+          See Recent Work
         </Button>
       </motion.div>
     </div>

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { label: "Services", href: "#" },
+  { label: "Work", href: "#work" },
   { label: "Pricing", href: "#pricing" },
   { label: "About", href: "#" },
   { label: "Contact", href: "#contact" },
@@ -45,10 +46,10 @@ export function Footer() {
                   "linear-gradient(135deg, rgb(165, 180, 252) 0%, rgb(196, 181, 253) 50%, rgb(129, 140, 248) 100%)",
               }}
             >
-              Ready to start your project?
+              Have a project in mind?
             </h2>
             <p className="mt-3 text-slate-400 text-lg max-w-md mx-auto">
-              Let's build something that scales. Get in touch and we'll respond within 24 hours.
+              Send over a short brief and I'll reply personally within 24 hours with honest scope and timeline.
             </p>
             <div className="mt-8">
               <Button
@@ -82,10 +83,10 @@ export function Footer() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center justify-items-center sm:justify-items-stretch text-center sm:text-left">
           <p className="text-xs text-white/50 sm:justify-self-start">
-            © {new Date().getFullYear()} Full-Stack Dev Studio
+            © {new Date().getFullYear()} Senior Full-Stack Engineer
           </p>
           <p className="text-xs text-white/40 order-last sm:order-none sm:justify-self-center">
-            Custom React apps & landing pages for startups
+            SaaS MVPs, custom platforms & ongoing engineering
           </p>
           <div className="flex items-center justify-center gap-2 sm:justify-self-end">
             {socialLinks.map((item) => (

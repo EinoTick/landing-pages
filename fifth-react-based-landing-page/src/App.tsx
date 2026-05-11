@@ -1,11 +1,13 @@
 import { MouseSpotlight } from "./components/landing/MouseSpotlight"
 import { Hero } from "./components/landing/Hero"
+import { TechStack } from "./components/landing/TechStack"
 import { FullStackCard } from "./components/landing/FullStackCard"
 import { DevOpsCard } from "./components/landing/DevOpsCard"
 import { TestingCard } from "./components/landing/TestingCard"
 import { PerformanceCard } from "./components/landing/PerformanceCard"
 import { PricingCards } from "./components/landing/PricingCards"
 import { WhyUs } from "./components/landing/WhyUs"
+import { RecentWork } from "./components/landing/RecentWork"
 import { Footer } from "./components/landing/Footer"
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
       <div className="relative z-10">
         <Hero />
 
+        <TechStack />
+
         <div className="max-w-7xl mx-auto px-4 pb-20">
           <div className="grid grid-cols-12 gap-4">
             <FullStackCard />
@@ -24,6 +28,8 @@ function App() {
             <PerformanceCard />
           </div>
         </div>
+
+        <RecentWork />
 
         <WhyUs />
 

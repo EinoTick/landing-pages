@@ -75,16 +75,23 @@ const cartItems = [
 
 const testFunction = () => {
   console.log('testFunction');
-  console.log(discountedShoppingSpeed(cartItems))
+  console.log(megaCheckout(cart))
 }
 
 
+const cart = [
+  { name: "Laptop", price: 1000, quantity: 1 },
+  { name: "Mouse", price: 50, quantity: 2 },
+  { name: "Keyboard", price: 100, quantity: 1 },
+  { name: "Monitor", price: 300, quantity: 2 }
+];
 
 
-const discountedShoppingSpeed = (arr) => {
-  return arr.filter((item) => item.category === 'electronics')
-    .map((item) => item.price * 0.9)
-    .reduce((val, acc) => {
-      return acc  + val;
-    }, 0)
+const megaCheckout = (cart) => {
+  return cart.reduce((acc, item) => {
+    const priceOfItems = item.quantity * item.price
+    acc.totalRevenue += priceOfItems
+    acc.totalItems = acc.totalItems + item.quantity
+    return acc
+  }, {totalItems: 0, totalRevenue: 0})
 }
