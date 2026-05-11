@@ -30,20 +30,35 @@ const NodeIcon = (
   </svg>
 )
 
-const PythonIcon = (
-  <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M9 3 h4 a3 3 0 0 1 3 3 v3 h-7 a3 3 0 0 0 -3 3 v2" />
-    <path d="M15 21 h-4 a3 3 0 0 1 -3 -3 v-3 h7 a3 3 0 0 0 3 -3 v-2" />
-    <circle cx="10" cy="6" r="0.6" fill="currentColor" stroke="none" />
-    <circle cx="14" cy="18" r="0.6" fill="currentColor" stroke="none" />
+const AngularIcon = (
+  <svg
+    viewBox="0 0 24 24"
+    className="w-8 h-8"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.25"
+    strokeLinejoin="round"
+    strokeLinecap="round"
+    aria-hidden
+  >
+    <path d="M12 2.5 4 6.5v8.5l8 6.5 8-6.5V6.5l-8-4z" />
+    <path d="M12 8.75 9 16.25M12 8.75 15 16.25M10.35 13.5h3.3" />
   </svg>
 )
 
 const DjangoIcon = (
-  <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round">
-    <path d="M9 3 v13.5 a3.5 3.5 0 1 1 -3.5 -3.5 h0.5" />
-    <path d="M9 7 h1.5 a3.5 3.5 0 0 1 3.5 3.5 v3.5" />
-    <circle cx="14" cy="5.5" r="0.9" fill="currentColor" stroke="none" />
+  <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor" aria-hidden>
+    <text
+      x="12"
+      y="18"
+      textAnchor="middle"
+      fontSize="17"
+      fontWeight="800"
+      fontFamily="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+      letterSpacing="-0.5"
+    >
+      dj
+    </text>
   </svg>
 )
 
@@ -57,8 +72,8 @@ const FastApiIcon = (
 const stack: StackItem[] = [
   { name: "React", color: "text-cyan-300", icon: ReactIcon },
   { name: "Next.js", color: "text-white", icon: NextIcon },
+  { name: "Angular", color: "text-red-400", icon: AngularIcon },
   { name: "Node.js", color: "text-green-400", icon: NodeIcon },
-  { name: "Python", color: "text-yellow-300", icon: PythonIcon },
   { name: "Django", color: "text-emerald-400", icon: DjangoIcon },
   { name: "FastAPI", color: "text-teal-300", icon: FastApiIcon },
 ]
