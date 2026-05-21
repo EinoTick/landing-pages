@@ -27,7 +27,7 @@ export function AboutMe() {
             </p>
             <p className="text-base md:text-[17px] text-white/80 leading-7 md:leading-8 max-w-xl">
               Hi, I'm{" "}
-              <span className="text-white font-semibold">[Insert Name]</span>.
+              <span className="text-white font-semibold">Eino</span>.
               I'm a senior engineer who left the agency world to build
               high-performance software directly for founders. I handle the
               architecture, the code, and the deployments.
