@@ -1,6 +1,7 @@
-# Next.js on Netlify — do not set `publish`; the Next runtime plugin handles output.
+# Static export — same deploy model as Vite/React on Netlify.
 [build]
   command = "npm run build"
+  publish = "out"
 
 [build.environment]
   NODE_VERSION = "20"
