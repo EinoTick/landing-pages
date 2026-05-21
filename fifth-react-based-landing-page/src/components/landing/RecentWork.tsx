@@ -22,7 +22,7 @@ const placeholders: CaseStudy[] = [
     title: "Project coming soon",
     description:
       "Custom internal platform replacing a tangle of spreadsheets. Case study with metrics on the way.",
-    stack: ["React", "Django", "Celery"],
+    stack: ["React", "Vue", "Celery"],
   },
   {
     tag: "Open Source",

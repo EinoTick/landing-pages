@@ -46,19 +46,10 @@ const AngularIcon = (
   </svg>
 )
 
-const DjangoIcon = (
+const VueIcon = (
   <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor" aria-hidden>
-    <text
-      x="12"
-      y="18"
-      textAnchor="middle"
-      fontSize="17"
-      fontWeight="800"
-      fontFamily="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-      letterSpacing="-0.5"
-    >
-      dj
-    </text>
+    <path d="M12 2.25 3.75 20.5h5.1L12 12.1l3.15 8.4h5.1L12 2.25z" opacity="0.45" />
+    <path d="M12 7.75 8.6 16.75h6.8L12 7.75z" />
   </svg>
 )
 
@@ -73,8 +64,8 @@ const stack: StackItem[] = [
   { name: "React", color: "text-cyan-300", icon: ReactIcon },
   { name: "Next.js", color: "text-white", icon: NextIcon },
   { name: "Angular", color: "text-red-400", icon: AngularIcon },
+  { name: "Vue", color: "text-emerald-400", icon: VueIcon },
   { name: "Node.js", color: "text-green-400", icon: NodeIcon },
-  { name: "Django", color: "text-emerald-400", icon: DjangoIcon },
   { name: "FastAPI", color: "text-teal-300", icon: FastApiIcon },
 ]
 
