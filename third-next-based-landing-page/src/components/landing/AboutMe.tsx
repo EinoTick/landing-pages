@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User } from "lucide-react";
+import Image from "next/image";
 
 export function AboutMe() {
   return (
@@ -18,8 +18,15 @@ export function AboutMe() {
               aria-hidden
               className="absolute -inset-1 rounded-full bg-gradient-to-br from-green-400/30 to-indigo-500/20 blur-md"
             />
-            <div className="relative w-16 h-16 rounded-full border border-white/15 bg-white/5 backdrop-blur-xl flex items-center justify-center overflow-hidden">
-              <User className="w-7 h-7 text-white/60" />
+            <div className="relative w-20 h-20 rounded-full border border-white/15 bg-white/5 backdrop-blur-xl overflow-hidden">
+              <Image
+                src="/images/about.jpg"
+                alt="Eino"
+                width={80}
+                height={80}
+                className="h-full w-full object-cover object-top"
+                priority
+              />
             </div>
           </div>
 
