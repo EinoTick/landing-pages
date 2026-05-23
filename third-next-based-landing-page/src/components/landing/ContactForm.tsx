@@ -24,15 +24,26 @@ const budgetOptions = [
   { value: "unsure", label: "Not sure yet" },
 ];
 
+const fieldClassName = cn(
+  "w-full rounded-md border border-white/20 bg-white/5 text-base text-white backdrop-blur-sm transition-colors",
+  "placeholder:text-slate-500",
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-400/40 focus-visible:border-green-400/35",
+  "disabled:cursor-not-allowed disabled:opacity-50"
+);
+
+const inputClassName = cn(fieldClassName, "h-auto min-h-[3rem] py-3 px-4");
+
 const selectClassName = cn(
-  "flex h-11 w-full rounded-md border border-white/15 bg-slate-950/40 px-3 py-2 text-sm text-white backdrop-blur-sm transition-colors",
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/50 focus-visible:border-indigo-400/40",
-  "disabled:cursor-not-allowed disabled:opacity-50",
+  fieldClassName,
+  "min-h-[3rem] py-3 px-4 appearance-none",
   "[&>option]:bg-slate-900 [&>option]:text-white"
 );
 
-const inputClassName =
-  "border-white/15 bg-slate-950/40 backdrop-blur-sm focus-visible:ring-indigo-400/50 focus-visible:border-indigo-400/40";
+const textareaClassName = cn(fieldClassName, "min-h-[9.5rem] py-3 px-4 resize-y");
+
+const labelClassName = "text-base font-semibold text-white/90";
+
+const optionalLabelClassName = "text-sm font-normal text-white/40";
 
 function FieldError({ message }: { message?: string }) {
   if (!message) return null;
@@ -144,10 +155,12 @@ export function ContactForm() {
               </p>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
+            <form onSubmit={handleSubmit} className="space-y-7" noValidate>
+              <div className="grid sm:grid-cols-2 gap-6 sm:gap-7">
+                <div className="space-y-2.5">
+                  <Label htmlFor="name" className={labelClassName}>
+                    Name
+                  </Label>
                   <Input
                     id="name"
                     name="name"
@@ -161,8 +174,10 @@ export function ContactForm() {
                   <FieldError message={fieldErrors.name} />
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                <div className="space-y-2.5">
+                  <Label htmlFor="email" className={labelClassName}>
+                    Email
+                  </Label>
                   <Input
                     id="email"
                     name="email"
@@ -177,11 +192,11 @@ export function ContactForm() {
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="company">
+              <div className="grid sm:grid-cols-2 gap-6 sm:gap-7">
+                <div className="space-y-2.5">
+                  <Label htmlFor="company" className={labelClassName}>
                     Company{" "}
-                    <span className="text-white/40 font-normal">(optional)</span>
+                    <span className={optionalLabelClassName}>(optional)</span>
                   </Label>
                   <Input
                     id="company"
@@ -195,10 +210,10 @@ export function ContactForm() {
                   <FieldError message={fieldErrors.company} />
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="budget">
+                <div className="space-y-2.5">
+                  <Label htmlFor="budget" className={labelClassName}>
                     Budget{" "}
-                    <span className="text-white/40 font-normal">(optional)</span>
+                    <span className={optionalLabelClassName}>(optional)</span>
                   </Label>
                   <select
                     id="budget"
@@ -215,14 +230,17 @@ export function ContactForm() {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="message">Project details</Label>
+              <div className="space-y-2.5">
+                <Label htmlFor="message" className={labelClassName}>
+                  Project details
+                </Label>
                 <Textarea
                   id="message"
                   name="message"
+                  rows={6}
                   placeholder="What are you building, who's it for, and what's your ideal timeline?"
                   required
-                  className={inputClassName}
+                  className={textareaClassName}
                   aria-invalid={Boolean(fieldErrors.message)}
                 />
                 <FieldError message={fieldErrors.message} />
@@ -231,7 +249,7 @@ export function ContactForm() {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full sm:w-auto group h-auto py-3 px-8 font-semibold transition-transform duration-200 hover:scale-[1.02] active:scale-[1.01]"
+                className="w-full group h-auto py-4 px-8 text-base font-semibold gap-2 transition-transform duration-200 hover:scale-[1.01] active:scale-[1.005]"
                 disabled={pending}
               >
                 {pending ? (
