@@ -9,6 +9,7 @@ import { PricingCards } from "@/components/landing/PricingCards";
 import { WhyUs } from "@/components/landing/WhyUs";
 import { RecentWork } from "@/components/landing/RecentWork";
 import { AboutMe } from "@/components/landing/AboutMe";
+import { ContactForm } from "@/components/landing/ContactForm";
 import { Footer } from "@/components/landing/Footer";
 
 export default function Home() {
@@ -39,6 +40,8 @@ export default function Home() {
         </section>
 
         <AboutMe />
+
+        <ContactForm />
 
         <Footer />
       </div>
