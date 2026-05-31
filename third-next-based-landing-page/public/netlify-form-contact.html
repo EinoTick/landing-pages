@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Contact form detection</title>
+  </head>
+  <body>
+    <!--
+      Netlify scans static HTML at deploy time to register form fields.
+      This page is not linked anywhere; it exists only for form detection.
+    -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <input type="text" name="budget" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

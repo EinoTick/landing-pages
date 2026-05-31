@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import {
+  NETLIFY_CONTACT_FORM_NAME,
   submitContactPayload,
   validateContactPayload,
   type ContactPayload,
@@ -155,7 +156,26 @@ export function ContactForm() {
               </p>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-7" noValidate>
+            <form
+              name={NETLIFY_CONTACT_FORM_NAME}
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+              className="space-y-7"
+              noValidate
+            >
+              <input
+                type="hidden"
+                name="form-name"
+                value={NETLIFY_CONTACT_FORM_NAME}
+              />
+              <p className="hidden" aria-hidden="true">
+                <label>
+                  Don&apos;t fill this out:{" "}
+                  <input name="bot-field" tabIndex={-1} autoComplete="off" />
+                </label>
+              </p>
               <div className="grid sm:grid-cols-2 gap-6 sm:gap-7">
                 <div className="space-y-2.5">
                   <Label htmlFor="name" className={labelClassName}>
@@ -183,7 +203,7 @@ export function ContactForm() {
                     name="email"
                     type="email"
                     autoComplete="email"
-                    placeholder="you@company.com"
+                    placeholder="name@example.com"
                     required
                     className={inputClassName}
                     aria-invalid={Boolean(fieldErrors.email)}
@@ -203,7 +223,7 @@ export function ContactForm() {
                     name="company"
                     type="text"
                     autoComplete="organization"
-                    placeholder="Acme Inc."
+                    placeholder="Company or Project name"
                     className={inputClassName}
                     aria-invalid={Boolean(fieldErrors.company)}
                   />

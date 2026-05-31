@@ -1,5 +1,8 @@
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+/** Must match the `name` on the form and in public/netlify-form-contact.html */
+export const NETLIFY_CONTACT_FORM_NAME = "contact";
+
 export type ContactPayload = {
   name: string;
   email: string;
@@ -49,66 +52,51 @@ export function validateContactPayload(
   return { ok: true, data };
 }
 
-function formatMessage(data: ContactPayload): string {
-  const budgetLine = data.budget
-    ? `Budget: ${data.budget}`
-    : "Budget: Not specified";
-  const companyLine = data.company
-    ? `Company: ${data.company}`
-    : "Company: Not specified";
-
-  return [companyLine, budgetLine, "", data.message].join("\n");
+function isLocalDev(): boolean {
+  if (typeof window === "undefined") return false;
+  const host = window.location.hostname;
+  return host === "localhost" || host === "127.0.0.1";
 }
 
 export async function submitContactPayload(
   data: ContactPayload
 ): Promise<{ success: boolean; message: string }> {
-  const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+  const successMessage =
+    "Thanks — your message is in. I'll reply personally within 24 hours.";
 
-  if (!accessKey) {
-    if (process.env.NODE_ENV === "development") {
-      console.info("[contact] Submission (Web3Forms not configured):", data);
-      return {
-        success: true,
-        message:
-          "Thanks — your message is in. I'll reply personally within 24 hours.",
-      };
-    }
-    return {
-      success: false,
-      message:
-        "Contact form is not configured yet. Add NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY to your environment.",
-    };
+  if (isLocalDev()) {
+    console.info("[contact] Netlify Forms (local dev — not sent):", data);
+    return { success: true, message: successMessage };
   }
 
-  const response = await fetch("https://api.web3forms.com/submit", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify({
-      access_key: accessKey,
-      subject: `Project inquiry from ${data.name}`,
-      from_name: data.name,
-      email: data.email,
-      message: formatMessage(data),
-    }),
+  const body = new URLSearchParams({
+    "form-name": NETLIFY_CONTACT_FORM_NAME,
+    name: data.name,
+    email: data.email,
+    company: data.company,
+    budget: data.budget || "Not specified",
+    message: data.message,
   });
 
-  const result = (await response.json()) as { success?: boolean; message?: string };
+  try {
+    const response = await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: body.toString(),
+    });
 
-  if (!response.ok || !result.success) {
+    if (!response.ok) {
+      return {
+        success: false,
+        message: "Failed to send your message. Please try again.",
+      };
+    }
+
+    return { success: true, message: successMessage };
+  } catch {
     return {
       success: false,
-      message:
-        result.message ?? "Failed to send your message. Please try again.",
+      message: "Failed to send your message. Please try again.",
     };
   }
-
-  return {
-    success: true,
-    message:
-      "Thanks — your message is in. I'll reply personally within 24 hours.",
-  };
 }
