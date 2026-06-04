@@ -31,9 +31,17 @@ export function Footer() {
         </nav>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center justify-items-center sm:justify-items-stretch text-center sm:text-left">
-          <p className="text-xs text-white/50 sm:justify-self-start">
-            &copy; {new Date().getFullYear()} Senior Full-Stack Engineer
-          </p>
+          <div className="sm:justify-self-start space-y-1">
+            <p className="text-xs text-white/50">
+              &copy; {new Date().getFullYear()} Senior Full-Stack Engineer
+            </p>
+            <a
+              href="/tietosuoja"
+              className="text-xs text-white/40 hover:text-white/70 transition-colors"
+            >
+              Tietosuoja
+            </a>
+          </div>
           <p className="text-xs text-white/40 order-last sm:order-none sm:justify-self-center">
             SaaS MVPs, custom platforms & ongoing engineering
           </p>

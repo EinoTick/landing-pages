@@ -145,6 +145,16 @@ export function ContactForm() {
                 A short brief is enough — I&apos;ll reply within 24 hours with
                 honest scope, timeline, and next steps.
               </p>
+              <p className="mt-4 text-sm text-white/45 max-w-lg mx-auto">
+                Lähettämällä lomakkeen hyväksyt henkilötietojesi käsittelyn{" "}
+                <a
+                  href="/tietosuoja"
+                  className="text-white/60 hover:text-white underline-offset-2 hover:underline"
+                >
+                  tietosuojaselosteen
+                </a>{" "}
+                mukaisesti.
+              </p>
             </div>
 
             {formMessage && (
