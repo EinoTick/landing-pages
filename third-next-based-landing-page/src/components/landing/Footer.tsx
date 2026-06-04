@@ -11,7 +11,7 @@ const navLinks = [
 const socialLinks = [
   { icon: Github, href: "#", label: "GitHub" },
   { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:hello@example.com", label: "Email" },
+  { icon: Mail, href: "mailto:eino.developer@gmail.com", label: "Email" },
 ];
 
 export function Footer() {

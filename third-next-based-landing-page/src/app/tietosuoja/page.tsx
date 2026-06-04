@@ -37,10 +37,10 @@ export default function TietosuojaPage() {
           <li>
             <strong className="text-white/90">Sähköposti:</strong>{" "}
             <a
-              href="mailto:hello@example.com"
+              href="mailto:eino.developer@gmail.com"
               className="text-green-400 hover:text-green-300 underline-offset-2 hover:underline"
             >
-              hello@example.com
+              eino.developer@gmail.com
             </a>
           </li>
         </ul>
@@ -157,10 +157,10 @@ export default function TietosuojaPage() {
         <p>
           Voit käyttää oikeuksiasi lähettämällä pyynnön sähköpostitse:{" "}
           <a
-            href="mailto:hello@example.com"
+            href="mailto:eino.developer@gmail.com"
             className="text-green-400 hover:text-green-300 underline-offset-2 hover:underline"
           >
-            hello@example.com
+            eino.developer@gmail.com
           </a>
           . Vastaan pyyntöihin yleensä kuukauden kuluessa.
         </p>
