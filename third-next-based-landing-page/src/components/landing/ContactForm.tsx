@@ -67,7 +67,17 @@ function readPayload(form: HTMLFormElement): ContactPayload {
   };
 }
 
-export function ContactForm() {
+type ContactFormProps = {
+  eyebrow?: string;
+  heading?: string;
+  description?: string;
+};
+
+export function ContactForm({
+  eyebrow = "Contact",
+  heading = "Tell me about your project",
+  description = "A short brief is enough — I'll reply within 24 hours with honest scope, timeline, and next steps.",
+}: ContactFormProps) {
   const [pending, setPending] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [formMessage, setFormMessage] = useState<string | null>(null);
@@ -136,14 +146,13 @@ export function ContactForm() {
           <GradientPanel contentClassName="py-12 px-6 sm:py-14 sm:px-10 lg:px-12">
             <div className="text-center mb-10">
               <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-3">
-                Contact
+                {eyebrow}
               </p>
               <GradientHeading className="text-3xl sm:text-4xl leading-[1.15]">
-                Tell me about your project
+                {heading}
               </GradientHeading>
               <p className="mt-3 text-slate-400 text-lg max-w-lg mx-auto">
-                A short brief is enough — I&apos;ll reply within 24 hours with
-                honest scope, timeline, and next steps.
+                {description}
               </p>
               <p className="mt-4 text-sm text-white/45 max-w-lg mx-auto">
                 Lähettämällä lomakkeen hyväksyt henkilötietojesi käsittelyn{" "}

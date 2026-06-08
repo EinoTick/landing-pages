@@ -2,7 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
 
-const navLinks = [
+export type FooterNavLink = {
+  label: string;
+  href: string;
+};
+
+type FooterProps = {
+  logoHref?: string;
+  navLinks?: FooterNavLink[];
+  tagline?: string;
+};
+
+const defaultNavLinks: FooterNavLink[] = [
   { label: "Services", href: "#" },
   { label: "Work", href: "#work" },
   { label: "Pricing", href: "#pricing" },
@@ -16,13 +27,17 @@ const socialLinks = [
   { icon: Mail, href: "mailto:eino.developer@gmail.com", label: "Email" },
 ];
 
-export function Footer() {
+export function Footer({
+  logoHref = "/",
+  navLinks = defaultNavLinks,
+  tagline = "SaaS MVPs, custom platforms & ongoing engineering",
+}: FooterProps) {
   return (
     <footer className="bg-slate-950/80 backdrop-blur-xl border-t border-white/5">
       <div className="max-w-5xl mx-auto px-4 pt-12 pb-12">
         <div className="flex justify-center pb-6">
           <Link
-            href="/"
+            href={logoHref}
             className="inline-flex opacity-90 transition-opacity hover:opacity-100"
             aria-label="ET Logic — home"
           >
@@ -61,7 +76,7 @@ export function Footer() {
             </a>
           </div>
           <p className="text-xs text-white/40 order-last sm:order-none sm:justify-self-center">
-            SaaS MVPs, custom platforms & ongoing engineering
+            {tagline}
           </p>
           <div className="flex items-center justify-center gap-2 sm:justify-self-end">
             {socialLinks.map((item) => (
