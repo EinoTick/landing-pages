@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 const navLinks = [
@@ -18,6 +20,22 @@ export function Footer() {
   return (
     <footer className="bg-slate-950/80 backdrop-blur-xl border-t border-white/5">
       <div className="max-w-5xl mx-auto px-4 pt-12 pb-12">
+        <div className="flex justify-center pb-6">
+          <Link
+            href="/"
+            className="inline-flex opacity-90 transition-opacity hover:opacity-100"
+            aria-label="ET Logic — home"
+          >
+            <Image
+              src="/images/et-logic-logo-svg.svg"
+              alt="ET Logic"
+              width={148}
+              height={99}
+              className="h-10 w-auto"
+            />
+          </Link>
+        </div>
+
         <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 py-8">
           {navLinks.map((link) => (
             <a
