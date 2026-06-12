@@ -22,8 +22,8 @@ const defaultNavLinks: FooterNavLink[] = [
 ];
 
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  { icon: Github, href: "https://github.com/EinoTick", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/eino-tick/", label: "LinkedIn" },
   { icon: Mail, href: "mailto:eino.developer@gmail.com", label: "Email" },
 ];
 
