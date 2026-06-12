@@ -14,19 +14,32 @@ import {
 
 const plans = [
   {
-    name: "Workflow build",
+    name: "Free workflow demo",
     description:
-      "From process mapping to a deployed workflow app your team can use daily.",
+      "A working demo of your core process—built before any contract or invoice.",
+    price: "$0",
+    features: [
+      "Mapped to your key workflow steps",
+      "Clickable prototype to evaluate",
+      "Honest fit assessment afterward",
+      "Walk away anytime — zero obligation",
+    ],
+    cta: "Request a free demo",
+    featured: true,
+  },
+  {
+    name: "Full workflow build",
+    description:
+      "After a successful demo: from process mapping to a deployed app your team uses daily.",
     price: "Custom",
     features: [
       "Process discovery & scoping",
-      "Workflow design & prototyping",
       "Roles, states & notifications",
       "Admin views & reporting basics",
       "Deployment & handover docs",
     ],
-    cta: "Scope a workflow project",
-    featured: true,
+    cta: "Discuss a full build",
+    featured: false,
   },
   {
     name: "Extend existing flow",
@@ -73,12 +86,12 @@ export function WorkflowPricing() {
             How engagements work
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Fixed-scope workflow builds, targeted extensions, or a monthly
-            retainer—depending on where you are with your process.
+            Every engagement starts with a free demo. Only move to a paid build
+            when you&apos;re confident the workflow fits.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -96,7 +109,7 @@ export function WorkflowPricing() {
               >
                 {plan.featured && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide uppercase bg-green-400 text-slate-950 shadow-lg shadow-green-400/20">
-                    Typical starting point
+                    Start here
                   </div>
                 )}
                 <CardHeader>

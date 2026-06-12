@@ -38,7 +38,8 @@ export function AboutMe() {
               Hi, I&apos;m{" "}
               <span className="text-white font-semibold">Eino</span>.
               I&apos;m a senior engineer who left the agency world to build
-              high-performance software directly for founders. I handle the
+              high-performance software directly for founders. I start with a
+              free demo so you can see my work before committing—I handle the
               architecture, the code, and the deployments.
             </p>
           </div>

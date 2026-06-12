@@ -25,9 +25,9 @@ const reasons = [
   },
   {
     icon: Wrench,
-    title: "Production-grade from day one",
+    title: "Try before you commit",
     description:
-      "Typed codebase, access control, logging, and reliable notifications—not a prototype that breaks the first time volume spikes.",
+      "I build a free workflow demo first—real screens, real flow. You decide if it's worth a full build before spending anything.",
   },
 ];
 
@@ -45,8 +45,8 @@ export function WorkflowWhyUs() {
             Why teams hire me for workflow work
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Workflow software fails when it ignores reality. I build for the
-            messy middle—not the happy path in a slide deck.
+            Workflow software fails when it ignores reality. I prove the approach
+            with a free demo before asking you to commit.
           </p>
         </motion.div>
 

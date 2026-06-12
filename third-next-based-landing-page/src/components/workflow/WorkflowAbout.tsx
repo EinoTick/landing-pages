@@ -37,8 +37,8 @@ export function WorkflowAbout() {
               Hi, I&apos;m{" "}
               <span className="text-white font-semibold">Eino</span>. I build
               workflow software for teams stuck between spreadsheets and
-              enterprise tools that don&apos;t fit. You get a senior engineer
-              who maps the process, ships the system, and stays accountable
+              enterprise tools that don&apos;t fit. I prove it with a free demo
+              first—then map the process, ship the system, and stay accountable
               through launch.
             </p>
           </div>

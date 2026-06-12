@@ -13,9 +13,9 @@ const reasons = [
   },
   {
     icon: Zap,
-    title: "Built for production, not demos",
+    title: "Start with a free demo",
     description:
-      "I ship apps that hold up under real users and real load—typed end-to-end, observable, and tuned for Core Web Vitals before anyone asks.",
+      "No vague proposals or big upfront commitments—I build a real demo of your core idea first. Like it? We scope the full build. Don't? You walk away owing nothing.",
   },
   {
     icon: Shield,
@@ -66,7 +66,7 @@ export function WhyUs() {
             Why work with me
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            A focused, senior alternative to agencies—without the overhead, hand-offs, or surprise invoices.
+            A focused, senior alternative to agencies—with a free demo upfront so you can judge the fit before spending anything.
           </p>
         </motion.div>
 

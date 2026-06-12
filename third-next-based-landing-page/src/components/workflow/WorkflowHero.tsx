@@ -37,9 +37,9 @@ export function WorkflowHero() {
         transition={{ duration: 0.6, delay: 0.05 }}
         className="space-y-5"
       >
-        <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/70">
+        <p className="inline-flex items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-4 py-1.5 text-sm font-medium text-green-300">
           <GitBranch className="w-4 h-4 text-green-400" />
-          Workflow software specialist
+          Free workflow demo — zero risk
         </p>
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent max-w-4xl mx-auto">
           Custom workflow software
@@ -51,6 +51,10 @@ export function WorkflowHero() {
           email chains, and manual hand-offs—with clear states, ownership,
           and audit trails your team can trust.
         </p>
+        <p className="text-base md:text-lg text-white/50 max-w-xl mx-auto">
+          I build a free demo of your workflow first. See it working, test the
+          fit, and walk away if it&apos;s not right—no contract, no invoice.
+        </p>
       </motion.div>
 
       <motion.div
@@ -61,7 +65,7 @@ export function WorkflowHero() {
       >
         <Button size="lg" className="group w-full sm:w-auto" asChild>
           <a href="#contact">
-            Discuss your workflow
+            Request a free demo
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </Button>

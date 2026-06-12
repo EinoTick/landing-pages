@@ -41,7 +41,10 @@ export default function Home() {
 
         <AboutMe />
 
-        <ContactForm />
+        <ContactForm
+          heading="Request a free demo"
+          description="Tell me what you're building. If it's a good fit, I'll put together a free demo—no contract and no cost. Not the right match? I'll say so honestly."
+        />
 
         <Footer />
       </div>

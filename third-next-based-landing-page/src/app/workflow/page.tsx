@@ -43,8 +43,8 @@ export default function WorkflowPage() {
         <WorkflowAbout />
         <ContactForm
           eyebrow="Contact"
-          heading="Describe your workflow"
-          description="Share the process you're trying to fix—how it works today, who's involved, and what's breaking. I'll reply within 24 hours with an honest take on scope and approach."
+          heading="Request a free workflow demo"
+          description="Describe the process you're trying to fix. If it's a good fit, I'll build a free demo—no contract and no cost. Not the right match? I'll tell you straight."
         />
         <Footer
           logoHref="/workflow"

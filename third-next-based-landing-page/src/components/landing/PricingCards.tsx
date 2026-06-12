@@ -7,9 +7,23 @@ import { motion } from "framer-motion";
 
 const plans = [
   {
+    name: "Free demo",
+    description:
+      "A focused, working demo of your idea—built before any contract or invoice.",
+    price: "$0",
+    features: [
+      "Scoped to your core use case",
+      "Clickable prototype you can evaluate",
+      "Honest fit assessment afterward",
+      "Walk away anytime — zero obligation",
+    ],
+    cta: "Request a free demo",
+    featured: true,
+  },
+  {
     name: "SaaS MVP Build",
     description:
-      "Take your product from spec to a launched, paying-customer-ready SaaS in 6–10 weeks.",
+      "After a successful demo: take your product from spec to a launched, paying-customer-ready SaaS in 6–10 weeks.",
     price: "$8,000+",
     features: [
       "Architecture planning",
@@ -18,13 +32,13 @@ const plans = [
       "API integrations",
       "4 weeks of post-launch bug fixes",
     ],
-    cta: "Scope my MVP",
-    featured: true,
+    cta: "Discuss a full build",
+    featured: false,
   },
   {
     name: "Custom Platform",
     description:
-      "Heavier engineering work: complex products, internal tools, and platform migrations.",
+      "Heavier engineering work after we've proven the approach: complex products, internal tools, and migrations.",
     price: "Custom",
     features: [
       "Complex workflows",
@@ -66,11 +80,12 @@ export function PricingCards() {
             Engagement options
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Fixed-scope MVP builds, custom platform engagements, or an ongoing retainer—pick what fits.
+            Every engagement starts with a free demo. Only move to a paid build
+            when you&apos;re confident it&apos;s the right fit.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -88,7 +103,7 @@ export function PricingCards() {
               >
                 {plan.featured && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide uppercase bg-green-400 text-slate-950 shadow-lg shadow-green-400/20">
-                    Most popular
+                    Start here
                   </div>
                 )}
                 <CardHeader>
@@ -111,8 +126,9 @@ export function PricingCards() {
                     variant={plan.featured ? "default" : "outline"}
                     className="w-full"
                     size="lg"
+                    asChild
                   >
-                    {plan.cta}
+                    <a href="#contact">{plan.cta}</a>
                   </Button>
                   {"note" in plan && plan.note ? (
                     <p className="text-[11px] text-white/45 text-center tracking-wide">
