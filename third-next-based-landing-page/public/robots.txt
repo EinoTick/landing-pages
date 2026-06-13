@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /workflow-add
+
+Sitemap: https://etlogic.fi/sitemap.xml

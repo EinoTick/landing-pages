@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   ),
 };
 
-export default function RootLayout({
+export default function FiLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

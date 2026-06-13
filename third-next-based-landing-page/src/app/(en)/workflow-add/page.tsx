@@ -27,7 +27,8 @@ export default function WorkflowAddPage() {
             <code className="rounded bg-black/30 px-1.5 py-0.5 text-white/80">
               #ad-landscape
             </code>
-            , then screenshot the node (Ctrl+Shift+P → “Capture node screenshot”).
+            , then screenshot the node (Ctrl+Shift+P → &quot;Capture node
+            screenshot&quot;).
           </p>
         </header>
 
