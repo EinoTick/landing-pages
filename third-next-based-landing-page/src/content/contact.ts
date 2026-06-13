@@ -111,7 +111,7 @@ const fiContactContent: ContactContent = {
     email: "nimi@esimerkki.fi",
     company: "Yrityksen tai projektin nimi",
     message:
-      "Mitä olet rakentamassa, kenelle se on tarkoitettu ja mikä on ihanteellinen aikataulusi?",
+      "Mitä olet rakentamassa, kenelle se on tarkoitettu ja millä aikataululla haluaisit edetä?",
   },
   budgetOptions: [
     { value: "", label: "Valitse haarukka (valinnainen)" },

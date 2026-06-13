@@ -29,7 +29,7 @@ export function LanguageSwitcher({
         className
       )}
       role="group"
-      aria-label="Language"
+      aria-label={locale === "fi" ? "Valitse kieli" : "Select language"}
     >
       <Link
         href={fiPath}

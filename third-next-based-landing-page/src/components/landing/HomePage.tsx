@@ -1,4 +1,5 @@
 import { MouseSpotlight } from "@/components/landing/MouseSpotlight";
+import { HomeTopBar } from "@/components/landing/HomeTopBar";
 import { Hero } from "@/components/landing/Hero";
 import { TechStack } from "@/components/landing/TechStack";
 import { FullStackCard } from "@/components/landing/FullStackCard";
@@ -24,6 +25,7 @@ export function HomePage({ locale }: HomePageProps) {
   return (
     <div className="min-h-screen bg-slate-950 relative overflow-hidden">
       <MouseSpotlight />
+      <HomeTopBar locale={locale} />
 
       <div className="relative z-10">
         <Hero content={content.hero} />

@@ -4,33 +4,33 @@ export const fiHomeContent: HomeContent = {
   hero: {
     titleLine1: "Tuotantovalmiit verkkosovellukset",
     titleLine2: "ja räätälöidyt alustat.",
-    badge: "Ilmainen demo ensin — täysin riskitön",
+    badge: "Ilmainen demo ensin — täysin riskitöntä",
     subtitle:
-      "Senior-tason kehitystä SaaS-MVP:ille ja monimutkaisille sisäisille työkaluille—koko pinon haltuun ottava yksi insinööri.",
+      "Senior-tason ohjelmistokehitystä SaaS-MVP:ille ja vaativille sisäisille työkaluille—yksi insinööri, koko full stack.",
     description:
-      "Rakennan sinulle ilmaisen demon ennen sopimusta. Näe lähestymistapa, testaa sopivuus ja poistu jos ei tunnu oikealta—nolla kustannuksia, nolla painetta.",
+      "Rakennan ilmaisen demon ennen sopimusta. Näet lähestymistavan, testaat sopivuuden ja voit kieltäytyä jatkosta—ilman kustannuksia ja sitoumuksia.",
     primaryCta: "Pyydä ilmainen demo",
-    secondaryCta: "Katso viimeisimmät työt",
+    secondaryCta: "Katso referenssit",
   },
   techStack: {
-    eyebrow: "Pinon, jolla toimitan",
-    title: "Moderni, tyypitetty ja todistettu tuotannossa",
+    eyebrow: "Teknologiat, joilla rakennan",
+    title: "Moderni, tyypitetty ja tuotantokäytössä koeteltu",
     items: ["React", "Next.js", "Angular", "Vue", "Node.js", "FastAPI"],
   },
   fullStackCard: {
     title: "Full-stack-osaaminen",
     description:
-      "Hoidan koko pinon—frontend, API, tietokanta ja julkaisu.",
+      "Hoidan full stackin—käyttöliittymä, API, tietokanta ja julkaisu.",
     badges: ["React", "Node.js", "FastAPI"],
     bullets: [
-      "SaaS-MVP:t, jotka on rakennettu julkaistavaksi—ei esittelyä varten",
-      "Räätälöidyt sisäiset työkalut ja monimutkaiset työnkulkualustat",
+      "SaaS-MVP:t, jotka on tehty julkaistaviksi—ei pelkkiä demoja",
+      "Räätälöidyt sisäiset työkalut ja monimutkaiset workflow-alustat",
       "Tyypitetyt API:t ja selkeä, skaalautuva backend-arkkitehtuuri",
     ],
   },
   devOpsCard: {
-    title: "DevOps ja putket",
-    description: "Automatisoidut CI/CD-työnkulut",
+    title: "DevOps ja CI/CD",
+    description: "Automatisoitu julkaisu ja CI/CD-prosessit",
     pipelineLabels: {
       gitCommit: "Git-commit",
       docker: "Docker",
@@ -39,94 +39,94 @@ export const fiHomeContent: HomeContent = {
   },
   testingCard: {
     title: "Testaus ja luotettavuus",
-    description: "Kattava testikattavuus",
+    description: "Kattava automaattinen testaus",
     items: [
       "Vitest-yksikkötestit",
       "Cypress E2E -testit",
-      "Tyyppiturva TypeScriptillä",
+      "TypeScript-tyypitys",
     ],
   },
   performanceCard: {
     title: "Suorituskyky",
-    description: "Optimoitu nopeudelle ja skaalalle",
+    description: "Optimoitu nopeuteen ja skaalautuvuuteen",
     loadTimeLabel: "Latausaika",
     loadTimeValue: "< 1 s",
     lighthouseLabel: "Lighthouse-pisteet",
     lighthouseValue: "98+",
-    footerNote: "Koodin pilkkominen ja laiska lataus",
+    footerNote: "Code splitting ja lazy loading",
   },
   recentWork: {
-    title: "Viimeisimmät työt",
+    title: "Viimeisimmät projektit",
     subtitle:
-      "Valikoima monimutkaisia projekteja ja avoimen lähdekoodin panoksia. Täydet case studyt tulossa pian.",
-    previewLabel: "Esikatselu tulossa pian",
+      "Valikoima vaativia toteutuksia ja avoimen lähdekoodin projekteja. Tarkemmat case studyt tulossa pian.",
+    previewLabel: "Esikatselu tulossa",
     caseStudies: [
       {
         tag: "SaaS-MVP",
         title: "Projekti tulossa pian",
         description:
-          "Tuore kokonaisvaltainen toteutus—autentikoinnista ja laskutuksesta taustatyöhön. Yksityiskohtainen kuvaus tulossa pian.",
+          "Tuore kokonaistoteutus—autentikoinnista ja laskutuksesta taustajärjestelmiin. Yksityiskohtainen esittely tulossa pian.",
         stack: ["Next.js", "FastAPI", "Postgres"],
       },
       {
         tag: "Sisäinen työkalu",
         title: "Projekti tulossa pian",
         description:
-          "Räätälöity sisäinen alusta, joka korvasi taulukkolaskentasotkun. Case study mittareineen tulossa.",
+          "Räätälöity sisäinen alusta, joka korvasi Excel- ja sähköpostiketjut. Case study mittareineen tulossa.",
         stack: ["React", "Vue", "Celery"],
       },
       {
         tag: "Avoin lähdekoodi",
         title: "Projekti tulossa pian",
         description:
-          "Valitut avoimen lähdekoodin panokset ja ylläpitämäni työkalut. Repolinkit ja kohokohdat tulossa pian.",
+          "Valitut avoimen lähdekoodin panokset ja ylläpitämäni työkalut. Repolinkit ja kooste tulossa pian.",
         stack: ["TypeScript", "Node.js"],
       },
     ],
   },
   whyUs: {
-    title: "Miksi työskennellä kanssani",
+    title: "Miksi valita minut?",
     subtitle:
-      "Keskittynyt, senior-tason vaihtoehto toimistoille—ilmainen demo etukäteen, jotta voit arvioida sopivuuden ennen kuin käytät rahaa.",
+      "Keskittynyt senior-vaihtoehto toimistoille—ilmainen demo etukäteen, jotta voit arvioida sopivuuden ennen investointia.",
     reasons: [
       {
         title: "Työskentelet suoraan kanssani",
         description:
-          "Ei asiakasvastaavia, ei juniorien välitystä. Saat senior-insinöörin, joka kirjoittaa arkkitehtuurin, koodin ja julkaisuskriptit—sama henkilö alusta loppuun.",
+          "Ei account managereita eikä juniorien välitystä. Sama senior-insinööri suunnittelee arkkitehtuurin, kirjoittaa koodin ja hoitaa julkaisut alusta loppuun.",
       },
       {
         title: "Aloita ilmaisella demolla",
         description:
-          "Ei epämääräisiä tarjouksia tai suuria ennakkomaksuja—rakennan ensin oikean demon ydideoistasi. Tykkäät? Sovimme koko toteutuksen. Et? Voit lähteä veloituksetta.",
+          "Ei epämääräisiä tarjouksia eikä ennakkositoumuksia—rakennan ensin toimivan demon ydintoiminnallisuudesta. Sopii? Sovimme jatkosta. Ei sopiva? Voit kieltäytyä veloituksetta.",
       },
       {
-        title: "Testattu, tyypitetty, ylläpidettävä",
+        title: "Testattu, tyypitetty ja ylläpidettävä",
         description:
           "TypeScript, Vitest ja Playwright ovat vakioita. Saat koodipohjan, jota on turvallista muuttaa, helppo laajentaa ja valmis luovutettavaksi tulevalle tiimillesi.",
       },
       {
-        title: "Rehellinen, asynkroninen viestintä",
+        title: "Selkeä ja rehellinen viestintä",
         description:
-          "Selkeät rajaukset, realistiset aikataulut ja viikoittaiset kirjalliset päivitykset. Ei statuspalavereita, ei epämääräisiä arvioita—vain näkyvää, tasaista edistymistä.",
+          "Tarkat rajaukset, realistiset aikataulut ja viikoittaiset kirjalliset päivitykset. Ei turhia statuspalavereita—näet edistymisen konkreettisesti.",
       },
     ],
   },
   pricing: {
     title: "Yhteistyömallit",
     subtitle:
-      "Jokainen yhteistyö alkaa ilmaisesta demosta. Siirry maksulliseen toteutukseen vain kun olet varma, että se on oikea valinta.",
+      "Kaikki alkaa ilmaisesta demosta. Siirry maksulliseen toteutukseen vasta, kun olet varma valinnasta.",
     featuredBadge: "Aloita tästä",
     plans: [
       {
         name: "Ilmainen demo",
         description:
-          "Kohdennettu, toimiva demo ideastasi—rakennettu ennen sopimusta tai laskua.",
+          "Kohdennettu, toimiva demo ideastasi—rakennettu ennen sopimusta tai laskutusta.",
         price: "0 €",
         features: [
           "Rajattu ydinkäyttötapaukseesi",
-          "Klikattava prototyyppi arvioitavaksi",
-          "Rehellinen sopivuusarvio jälkeenpäin",
-          "Voit poistua milloin tahansa — ei sitoumuksia",
+          "Klikattava prototyyppi arviointiin",
+          "Rehellinen arvio sopivuudesta",
+          "Voit kieltäytyä milloin tahansa—ei sitoumuksia",
         ],
         cta: "Pyydä ilmainen demo",
         featured: true,
@@ -141,61 +141,61 @@ export const fiHomeContent: HomeContent = {
           "Tietokantasuunnittelu",
           "Autentikointi",
           "API-integraatiot",
-          "4 viikon julkaisun jälkeinen bugikorjaus",
+          "4 viikon tuki julkaisun jälkeen",
         ],
         cta: "Keskustele koko toteutuksesta",
       },
       {
         name: "Räätälöity alusta",
         description:
-          "Raskaampaa engineering-työtä lähestymistavan todistamisen jälkeen: monimutkaiset tuotteet, sisäiset työkalut ja migraatiot.",
-        price: "Räätälöity",
+          "Vaativampi ohjelmistokehitys demon jälkeen: monimutkaiset tuotteet, sisäiset työkalut ja migraatiot.",
+        price: "Sopimuksen mukaan",
         features: [
-          "Monimutkaiset työnkulut",
+          "Monimutkaiset workflowt",
           "Sisäiset työkalut",
-          "Vanhan koodipohjan refaktorointi",
+          "Legacy-koodin refaktorointi",
           "Headless-kauppamigraatiot",
         ],
         cta: "Keskustele laajuudesta",
       },
       {
-        name: "Kuukausittainen ylläpito ja retainer",
+        name: "Kuukausittainen retainer",
         description:
-          "Aina käytettävissä oleva senior-insinööri tiimissäsi—ilman kokopäiväistä palkkausta.",
+          "Senior-insinööri jatkuvasti käytössä—ilman kokopäiväistä palkkausta.",
         price: "1 500 €/kk",
         features: [
-          "Taattu asynkroninen saatavuus",
+          "Taattu saatavuus asynkroniseen yhteistyöhön",
           "Tietoturvapäivitykset",
           "Suorituskyvyn seuranta",
-          "Jatkuva ominaisuuskehitys",
+          "Jatkuva kehitys ja parannukset",
         ],
-        cta: "Tarkista saatavuus",
-        note: "Rajoitettu 3 jatkuvaan asiakkaaseen.",
+        cta: "Kysy saatavuutta",
+        note: "Enintään 3 jatkuvaa asiakkuutta.",
       },
     ],
   },
   about: {
-    eyebrow: "Tietoa",
+    eyebrow: "Tietoa minusta",
     introBeforeName: "Hei, olen",
     name: "Eino",
     bioAfterName:
-      ". Olen senior-insinööri, joka jätti toimistomaailman rakentaakseen suorituskykyistä ohjelmistoa suoraan perustajille. Aloitan ilmaisella demolla, jotta näet työni ennen sitoutumista—hoidan arkkitehtuurin, koodin ja julkaisut.",
+      ", senior-insinööri, joka jätti toimistomaailman rakentaakseen suorituskykyistä ohjelmistoa suoraan perustajille. Aloitan ilmaisella demolla, jotta näet työn laadun ennen sitoutumista—hoidan arkkitehtuurin, toteutuksen ja julkaisut.",
   },
   contact: {
     eyebrow: "Yhteystiedot",
     heading: "Pyydä ilmainen demo",
     description:
-      "Kerro mitä olet rakentamassa. Jos se sopii hyvin, teen ilmaisen demon—ei sopimusta eikä kustannuksia. Ei oikea match? Kerron sen suoraan.",
+      "Kerro mitä olet rakentamassa. Jos projekti sopii, teen ilmaisen demon—ei sopimusta eikä kustannuksia. Jos en ole oikea valinta, kerron sen suoraan.",
   },
   footer: {
     navLinks: [
       { label: "Palvelut", href: "#" },
-      { label: "Työt", href: "#work" },
+      { label: "Referenssit", href: "#work" },
       { label: "Hinnoittelu", href: "#pricing" },
       { label: "Tietoa", href: "#about" },
       { label: "Yhteystiedot", href: "#contact" },
     ],
-    tagline: "SaaS-MVP:t, räätälöidyt alustat ja jatkuva engineering",
+    tagline: "SaaS-MVP:t, räätälöidyt alustat ja jatkuva ohjelmistokehitys",
     privacyLabel: "Tietosuoja",
     copyrightRole: "Senior full-stack -insinööri",
   },
