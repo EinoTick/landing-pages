@@ -2,11 +2,10 @@
 
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
+import type { HomeContent } from "@/content/home/types";
 
-type StackItem = {
-  name: string;
-  color: string;
-  icon: ReactNode;
+type TechStackProps = {
+  content: HomeContent["techStack"];
 };
 
 const ReactIcon = (
@@ -28,21 +27,11 @@ const NextIcon = (
 const NodeIcon = (
   <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round">
     <path d="M12 2 L21 7 V17 L12 22 L3 17 V7 Z" />
-    <path d="M9 9 v6 a2 2 0 0 0 4 0 v-6 M15 11 a2 2 0 0 1 2 -2 h1 a2 2 0 0 1 2 2 v0 a2 2 0 0 1 -2 2 h-1 a2 2 0 0 0 -2 2 v0 a2 2 0 0 0 2 2 h1 a2 2 0 0 0 2 -2" stroke="currentColor" strokeOpacity="0.0" />
   </svg>
 );
 
 const AngularIcon = (
-  <svg
-    viewBox="0 0 24 24"
-    className="w-8 h-8"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.25"
-    strokeLinejoin="round"
-    strokeLinecap="round"
-    aria-hidden
-  >
+  <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinejoin="round" strokeLinecap="round" aria-hidden>
     <path d="M12 2.5 4 6.5v8.5l8 6.5 8-6.5V6.5l-8-4z" />
     <path d="M12 8.75 9 16.25M12 8.75 15 16.25M10.35 13.5h3.3" />
   </svg>
@@ -52,16 +41,10 @@ const VueIcon = (
   <svg viewBox="0 0 261.76 226.69" className="w-8 h-8" aria-hidden>
     <g transform="matrix(1.3333 0 0 -1.3333 -76.311 313.34)">
       <g transform="translate(178.06 235.01)">
-        <path
-          d="m0 0-22.669-39.264-22.669 39.264h-75.491l98.16-170.02 98.16 170.02z"
-          fill="#41b883"
-        />
+        <path d="m0 0-22.669-39.264-22.669 39.264h-75.491l98.16-170.02 98.16 170.02z" fill="#41b883" />
       </g>
       <g transform="translate(178.06 235.01)">
-        <path
-          d="m0 0-22.669-39.264-22.669 39.264h-36.227l58.896-102.01 58.896 102.01z"
-          fill="#34495e"
-        />
+        <path d="m0 0-22.669-39.264-22.669 39.264h-36.227l58.896-102.01 58.896 102.01z" fill="#34495e" />
       </g>
     </g>
   </svg>
@@ -74,16 +57,16 @@ const FastApiIcon = (
   </svg>
 );
 
-const stack: StackItem[] = [
-  { name: "React", color: "text-cyan-300", icon: ReactIcon },
-  { name: "Next.js", color: "text-white", icon: NextIcon },
-  { name: "Angular", color: "text-red-400", icon: AngularIcon },
-  { name: "Vue", color: "text-emerald-400", icon: VueIcon },
-  { name: "Node.js", color: "text-green-400", icon: NodeIcon },
-  { name: "FastAPI", color: "text-teal-300", icon: FastApiIcon },
-];
+const stackIcons: Record<string, { color: string; icon: ReactNode }> = {
+  React: { color: "text-cyan-300", icon: ReactIcon },
+  "Next.js": { color: "text-white", icon: NextIcon },
+  Angular: { color: "text-red-400", icon: AngularIcon },
+  Vue: { color: "text-emerald-400", icon: VueIcon },
+  "Node.js": { color: "text-green-400", icon: NodeIcon },
+  FastAPI: { color: "text-teal-300", icon: FastApiIcon },
+};
 
-export function TechStack() {
+export function TechStack({ content }: TechStackProps) {
   return (
     <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -94,10 +77,10 @@ export function TechStack() {
           className="text-center mb-10"
         >
           <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-3">
-            The stack I ship with
+            {content.eyebrow}
           </p>
           <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white">
-            Modern, typed, and proven in production
+            {content.title}
           </h2>
         </motion.div>
 
@@ -112,21 +95,21 @@ export function TechStack() {
           <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-slate-950 to-transparent rounded-r-2xl" />
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-x-6 gap-y-8 items-center justify-items-center">
-            {stack.map((item) => (
-              <div
-                key={item.name}
-                className="flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors group"
-              >
+            {content.items.map((name) => {
+              const item = stackIcons[name];
+              if (!item) return null;
+              return (
                 <div
-                  className={`${item.color} transition-transform duration-300 group-hover:-translate-y-0.5`}
+                  key={name}
+                  className="flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors group"
                 >
-                  {item.icon}
+                  <div className={`${item.color} transition-transform duration-300 group-hover:-translate-y-0.5`}>
+                    {item.icon}
+                  </div>
+                  <span className="text-sm font-medium tracking-wide">{name}</span>
                 </div>
-                <span className="text-sm font-medium tracking-wide">
-                  {item.name}
-                </span>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </motion.div>
       </div>

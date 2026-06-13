@@ -3,8 +3,13 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import type { HomeContent } from "@/content/home/types";
 
-export function Hero() {
+type HeroProps = {
+  content: HomeContent["hero"];
+};
+
+export function Hero({ content }: HeroProps) {
   return (
     <div className="relative z-10 text-center space-y-8 py-20 px-4">
       <motion.div
@@ -14,20 +19,18 @@ export function Hero() {
         className="space-y-4"
       >
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
-          Production-Ready Web
+          {content.titleLine1}
           <br />
-          Applications & Custom Platforms.
+          {content.titleLine2}
         </h1>
         <p className="inline-flex items-center rounded-full border border-green-400/30 bg-green-400/10 px-4 py-1.5 text-sm font-medium text-green-300">
-          Free demo first — completely risk-free
+          {content.badge}
         </p>
         <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto">
-          Senior-level development for SaaS MVPs and complex internal tools—
-          built and shipped by one engineer who owns the entire stack.
+          {content.subtitle}
         </p>
         <p className="text-base md:text-lg text-white/50 max-w-xl mx-auto">
-          I build you a free demo before any contract. See the approach, test
-          the fit, and walk away if it&apos;s not right—zero cost, zero pressure.
+          {content.description}
         </p>
       </motion.div>
 
@@ -35,16 +38,16 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="flex items-center justify-center gap-4"
+        className="flex flex-col sm:flex-row items-center justify-center gap-4"
       >
-        <Button size="lg" className="group" asChild>
+        <Button size="lg" className="group w-full sm:w-auto" asChild>
           <a href="#contact">
-            Request a free demo
+            {content.primaryCta}
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </Button>
-        <Button size="lg" variant="outline" asChild>
-          <a href="#work">See recent work</a>
+        <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
+          <a href="#work">{content.secondaryCta}</a>
         </Button>
       </motion.div>
     </div>

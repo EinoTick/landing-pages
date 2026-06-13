@@ -1,23 +1,37 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { ReactNode } from "react";
+import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
+import type { Locale } from "@/lib/site";
 
 type LegalPageLayoutProps = {
   title: string;
+  backHref: string;
+  backLabel: string;
+  locale: Locale;
   children: ReactNode;
 };
 
-export function LegalPageLayout({ title, children }: LegalPageLayoutProps) {
+export function LegalPageLayout({
+  title,
+  backHref,
+  backLabel,
+  locale,
+  children,
+}: LegalPageLayoutProps) {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
       <div className="max-w-3xl mx-auto px-4 py-12 sm:py-16">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-10"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Takaisin etusivulle
-        </Link>
+        <div className="mb-10 space-y-4">
+          <LanguageSwitcher locale={locale} page="privacy" />
+          <Link
+            href={backHref}
+            className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            {backLabel}
+          </Link>
+        </div>
 
         <header className="mb-10 pb-8 border-b border-white/10">
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">

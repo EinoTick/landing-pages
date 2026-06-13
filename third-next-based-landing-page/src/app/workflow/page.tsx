@@ -8,6 +8,8 @@ import { WorkflowHero } from "@/components/workflow/WorkflowHero";
 import { WorkflowPricing } from "@/components/workflow/WorkflowPricing";
 import { WorkflowUseCases } from "@/components/workflow/WorkflowUseCases";
 import { WorkflowWhyUs } from "@/components/workflow/WorkflowWhyUs";
+import { getHomeContent } from "@/content/home";
+import { buildHreflangAlternates, sitePaths } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Workflow Software — ET Logic",
@@ -18,7 +20,12 @@ export const metadata: Metadata = {
     description:
       "Custom workflow software built around how your team actually operates.",
     type: "website",
+    locale: "en_US",
   },
+  alternates: buildHreflangAlternates({
+    en: sitePaths.workflow.en,
+    xDefault: sitePaths.workflow.en,
+  }),
 };
 
 const workflowNavLinks = [
@@ -28,6 +35,8 @@ const workflowNavLinks = [
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
+
+const enFooter = getHomeContent("en").footer;
 
 export default function WorkflowPage() {
   return (
@@ -42,14 +51,22 @@ export default function WorkflowPage() {
         <WorkflowPricing />
         <WorkflowAbout />
         <ContactForm
-          eyebrow="Contact"
-          heading="Request a free workflow demo"
-          description="Describe the process you're trying to fix. If it's a good fit, I'll build a free demo—no contract and no cost. Not the right match? I'll tell you straight."
+          locale="en"
+          content={{
+            eyebrow: "Contact",
+            heading: "Request a free workflow demo",
+            description:
+              "Describe the process you're trying to fix. If it's a good fit, I'll build a free demo—no contract and no cost. Not the right match? I'll tell you straight.",
+          }}
         />
         <Footer
+          locale="en"
           logoHref="/workflow"
-          navLinks={workflowNavLinks}
-          tagline="Custom workflow software & process automation"
+          content={{
+            ...enFooter,
+            navLinks: workflowNavLinks,
+            tagline: "Custom workflow software & process automation",
+          }}
         />
       </div>
     </div>

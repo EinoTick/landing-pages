@@ -3,81 +3,30 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowUpRight, ImageIcon } from "lucide-react";
+import type { HomeContent } from "@/content/home/types";
 
-type CaseStudy = {
-  tag: string;
-  title: string;
-  description: string;
-  stack: string[];
+type RecentWorkProps = {
+  content: HomeContent["recentWork"];
 };
 
-const placeholders: CaseStudy[] = [
-  {
-    tag: "SaaS MVP",
-    title: "Project coming soon",
-    description:
-      "A recent end-to-end build—from auth and billing to background jobs. Detailed write-up landing here shortly.",
-    stack: ["Next.js", "FastAPI", "Postgres"],
-  },
-  {
-    tag: "Internal Tool",
-    title: "Project coming soon",
-    description:
-      "Custom internal platform replacing a tangle of spreadsheets. Case study with metrics on the way.",
-    stack: ["React", "Vue", "Celery"],
-  },
-  {
-    tag: "Open Source",
-    title: "Project coming soon",
-    description:
-      "Selected open-source contributions and tooling I maintain. Repo links and highlights coming soon.",
-    stack: ["TypeScript", "Node.js"],
-  },
-];
-
-export function RecentWork() {
+export function RecentWork({ content }: RecentWorkProps) {
   return (
     <section id="work" className="py-24 px-4">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl font-bold tracking-tight text-white mb-4">
-            Recent Work
-          </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            A selection of complex projects and open-source contributions. Full case studies coming soon.
-          </p>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
+          <h2 className="text-4xl font-bold tracking-tight text-white mb-4">{content.title}</h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">{content.subtitle}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {placeholders.map((item, i) => (
-            <motion.div
-              key={`${item.tag}-${i}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-            >
+          {content.caseStudies.map((item, i) => (
+            <motion.div key={`${item.tag}-${i}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
               <Card className="group relative h-full overflow-hidden border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/[0.07] transition-colors">
                 <div className="relative aspect-[16/10] overflow-hidden border-b border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01]">
-                  <div
-                    className="absolute inset-0 opacity-[0.06]"
-                    style={{
-                      backgroundImage:
-                        "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 0)",
-                      backgroundSize: "18px 18px",
-                    }}
-                  />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="flex items-center gap-2 text-white/40">
                       <ImageIcon className="w-5 h-5" />
-                      <span className="text-xs uppercase tracking-[0.18em]">
-                        Preview coming soon
-                      </span>
+                      <span className="text-xs uppercase tracking-[0.18em]">{content.previewLabel}</span>
                     </div>
                   </div>
                   <div className="absolute top-3 left-3">
@@ -86,23 +35,15 @@ export function RecentWork() {
                     </span>
                   </div>
                 </div>
-
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between gap-4 mb-3">
-                    <h3 className="text-xl font-semibold text-white">
-                      {item.title}
-                    </h3>
+                    <h3 className="text-xl font-semibold text-white">{item.title}</h3>
                     <ArrowUpRight className="w-5 h-5 text-white/40 group-hover:text-green-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
                   </div>
-                  <p className="text-[15px] text-white/75 leading-7">
-                    {item.description}
-                  </p>
+                  <p className="text-[15px] text-white/75 leading-7">{item.description}</p>
                   <div className="flex flex-wrap gap-2 pt-4">
                     {item.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs px-2 py-1 rounded-md border border-white/10 bg-white/[0.04] text-white/70"
-                      >
+                      <span key={tech} className="text-xs px-2 py-1 rounded-md border border-white/10 bg-white/[0.04] text-white/70">
                         {tech}
                       </span>
                     ))}

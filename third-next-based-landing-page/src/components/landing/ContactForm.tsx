@@ -9,21 +9,15 @@ import {
   validateContactPayload,
   type ContactPayload,
 } from "@/lib/contact";
+import { getContactContent } from "@/content/contact";
+import type { HomeContent } from "@/content/home/types";
+import { privacyPath, type Locale } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { GradientHeading, GradientPanel } from "@/components/landing/GradientPanel";
-
-const budgetOptions = [
-  { value: "", label: "Select a range (optional)" },
-  { value: "under-8k", label: "Under $8k" },
-  { value: "8k-20k", label: "$8k – $20k" },
-  { value: "20k-plus", label: "$20k+" },
-  { value: "retainer", label: "Monthly retainer" },
-  { value: "unsure", label: "Not sure yet" },
-];
 
 const fieldClassName = cn(
   "w-full rounded-md border border-white/20 bg-white/5 text-base text-white backdrop-blur-sm transition-colors",
@@ -68,16 +62,12 @@ function readPayload(form: HTMLFormElement): ContactPayload {
 }
 
 type ContactFormProps = {
-  eyebrow?: string;
-  heading?: string;
-  description?: string;
+  locale: Locale;
+  content: HomeContent["contact"];
 };
 
-export function ContactForm({
-  eyebrow = "Contact",
-  heading = "Tell me about your project",
-  description = "A short brief is enough — I'll reply within 24 hours with honest scope, timeline, and next steps.",
-}: ContactFormProps) {
+export function ContactForm({ locale, content }: ContactFormProps) {
+  const t = getContactContent(locale);
   const [pending, setPending] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [formMessage, setFormMessage] = useState<string | null>(null);
@@ -89,7 +79,7 @@ export function ContactForm({
     setFieldErrors({});
 
     const payload = readPayload(event.currentTarget);
-    const validation = validateContactPayload(payload);
+    const validation = validateContactPayload(payload, t.validation);
 
     if (!validation.ok) {
       setFieldErrors(validation.fieldErrors);
@@ -98,7 +88,11 @@ export function ContactForm({
     }
 
     setPending(true);
-    const result = await submitContactPayload(validation.data);
+    const result = await submitContactPayload(
+      validation.data,
+      t.success.message,
+      t.error.sendFailed
+    );
     setPending(false);
 
     if (result.success) {
@@ -114,16 +108,11 @@ export function ContactForm({
     return (
       <section id="contact" className="py-24 px-4 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <GradientPanel
-              contentClassName="py-16 px-8 text-center sm:py-20 sm:px-12"
-            >
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
+            <GradientPanel contentClassName="py-16 px-8 text-center sm:py-20 sm:px-12">
               <CheckCircle2 className="w-12 h-12 text-green-400 mx-auto mb-4" />
               <GradientHeading className="text-3xl sm:text-4xl leading-[1.15]">
-                Message received
+                {t.success.heading}
               </GradientHeading>
               <p className="mt-3 text-slate-400 text-lg max-w-md mx-auto leading-relaxed">
                 {successMessage}
@@ -138,39 +127,23 @@ export function ContactForm({
   return (
     <section id="contact" className="py-24 px-4 scroll-mt-20">
       <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <GradientPanel contentClassName="py-12 px-6 sm:py-14 sm:px-10 lg:px-12">
             <div className="text-center mb-10">
-              <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-3">
-                {eyebrow}
-              </p>
-              <GradientHeading className="text-3xl sm:text-4xl leading-[1.15]">
-                {heading}
-              </GradientHeading>
-              <p className="mt-3 text-slate-400 text-lg max-w-lg mx-auto">
-                {description}
-              </p>
+              <p className="text-xs uppercase tracking-[0.2em] text-white/50 mb-3">{content.eyebrow}</p>
+              <GradientHeading className="text-3xl sm:text-4xl leading-[1.15]">{content.heading}</GradientHeading>
+              <p className="mt-3 text-slate-400 text-lg max-w-lg mx-auto">{content.description}</p>
               <p className="mt-4 text-sm text-white/45 max-w-lg mx-auto">
-                Lähettämällä lomakkeen hyväksyt henkilötietojesi käsittelyn{" "}
-                <a
-                  href="/tietosuoja"
-                  className="text-white/60 hover:text-white underline-offset-2 hover:underline"
-                >
-                  tietosuojaselosteen
-                </a>{" "}
-                mukaisesti.
+                {t.privacy.privacyNoticeBefore}
+                <a href={privacyPath(locale)} className="text-white/60 hover:text-white underline-offset-2 hover:underline">
+                  {t.privacy.privacyLinkText}
+                </a>
+                {t.privacy.privacyNoticeAfter}
               </p>
             </div>
 
             {formMessage && (
-              <p
-                role="alert"
-                className="mb-6 rounded-lg border border-red-500/30 bg-red-950/40 px-4 py-3 text-sm text-red-200"
-              >
+              <p role="alert" className="mb-6 rounded-lg border border-red-500/30 bg-red-950/40 px-4 py-3 text-sm text-red-200">
                 {formMessage}
               </p>
             )}
@@ -184,49 +157,23 @@ export function ContactForm({
               className="space-y-7"
               noValidate
             >
-              <input
-                type="hidden"
-                name="form-name"
-                value={NETLIFY_CONTACT_FORM_NAME}
-              />
+              <input type="hidden" name="form-name" value={NETLIFY_CONTACT_FORM_NAME} />
               <p className="hidden" aria-hidden="true">
                 <label>
-                  Don&apos;t fill this out:{" "}
+                  {t.honeypotLabel}{" "}
                   <input name="bot-field" tabIndex={-1} autoComplete="off" />
                 </label>
               </p>
+
               <div className="grid sm:grid-cols-2 gap-6 sm:gap-7">
                 <div className="space-y-2.5">
-                  <Label htmlFor="name" className={labelClassName}>
-                    Name
-                  </Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    autoComplete="name"
-                    placeholder="Jane Founder"
-                    required
-                    className={inputClassName}
-                    aria-invalid={Boolean(fieldErrors.name)}
-                  />
+                  <Label htmlFor="name" className={labelClassName}>{t.labels.name}</Label>
+                  <Input id="name" name="name" type="text" autoComplete="name" placeholder={t.placeholders.name} required className={inputClassName} aria-invalid={Boolean(fieldErrors.name)} />
                   <FieldError message={fieldErrors.name} />
                 </div>
-
                 <div className="space-y-2.5">
-                  <Label htmlFor="email" className={labelClassName}>
-                    Email
-                  </Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    placeholder="name@example.com"
-                    required
-                    className={inputClassName}
-                    aria-invalid={Boolean(fieldErrors.email)}
-                  />
+                  <Label htmlFor="email" className={labelClassName}>{t.labels.email}</Label>
+                  <Input id="email" name="email" type="email" autoComplete="email" placeholder={t.placeholders.email} required className={inputClassName} aria-invalid={Boolean(fieldErrors.email)} />
                   <FieldError message={fieldErrors.email} />
                 </div>
               </div>
@@ -234,71 +181,40 @@ export function ContactForm({
               <div className="grid sm:grid-cols-2 gap-6 sm:gap-7">
                 <div className="space-y-2.5">
                   <Label htmlFor="company" className={labelClassName}>
-                    Company{" "}
-                    <span className={optionalLabelClassName}>(optional)</span>
+                    {t.labels.company}{" "}
+                    <span className={optionalLabelClassName}>{t.labels.companyOptional}</span>
                   </Label>
-                  <Input
-                    id="company"
-                    name="company"
-                    type="text"
-                    autoComplete="organization"
-                    placeholder="Company or Project name"
-                    className={inputClassName}
-                    aria-invalid={Boolean(fieldErrors.company)}
-                  />
+                  <Input id="company" name="company" type="text" autoComplete="organization" placeholder={t.placeholders.company} className={inputClassName} aria-invalid={Boolean(fieldErrors.company)} />
                   <FieldError message={fieldErrors.company} />
                 </div>
-
                 <div className="space-y-2.5">
                   <Label htmlFor="budget" className={labelClassName}>
-                    Budget{" "}
-                    <span className={optionalLabelClassName}>(optional)</span>
+                    {t.labels.budget}{" "}
+                    <span className={optionalLabelClassName}>{t.labels.budgetOptional}</span>
                   </Label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    className={selectClassName}
-                    defaultValue=""
-                  >
-                    {budgetOptions.map((option) => (
-                      <option key={option.value || "empty"} value={option.value}>
-                        {option.label}
-                      </option>
+                  <select id="budget" name="budget" className={selectClassName} defaultValue="">
+                    {t.budgetOptions.map((option) => (
+                      <option key={option.value || "empty"} value={option.value}>{option.label}</option>
                     ))}
                   </select>
                 </div>
               </div>
 
               <div className="space-y-2.5">
-                <Label htmlFor="message" className={labelClassName}>
-                  Project details
-                </Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  rows={6}
-                  placeholder="What are you building, who's it for, and what's your ideal timeline?"
-                  required
-                  className={textareaClassName}
-                  aria-invalid={Boolean(fieldErrors.message)}
-                />
+                <Label htmlFor="message" className={labelClassName}>{t.labels.message}</Label>
+                <Textarea id="message" name="message" rows={6} placeholder={t.placeholders.message} required className={textareaClassName} aria-invalid={Boolean(fieldErrors.message)} />
                 <FieldError message={fieldErrors.message} />
               </div>
 
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full group h-auto py-4 px-8 text-base font-semibold gap-2 transition-transform duration-200 hover:scale-[1.01] active:scale-[1.005]"
-                disabled={pending}
-              >
+              <Button type="submit" size="lg" className="w-full group h-auto py-4 px-8 text-base font-semibold gap-2 transition-transform duration-200 hover:scale-[1.01] active:scale-[1.005]" disabled={pending}>
                 {pending ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Sending…
+                    {t.sendingButton}
                   </>
                 ) : (
                   <>
-                    Send message
+                    {t.sendButton}
                     <Send className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </>
                 )}

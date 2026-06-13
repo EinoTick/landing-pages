@@ -11,41 +11,51 @@ export type ContactPayload = {
   message: string;
 };
 
+export type ContactValidationMessages = {
+  nameRequired: string;
+  emailRequired: string;
+  emailInvalid: string;
+  companyTooLong: string;
+  messageTooShort: string;
+  messageTooLong: string;
+  formError: string;
+};
+
 export type ContactValidationResult =
   | { ok: true; data: ContactPayload }
   | { ok: false; fieldErrors: Record<string, string>; message: string };
 
 export function validateContactPayload(
-  data: ContactPayload
+  data: ContactPayload,
+  messages: ContactValidationMessages
 ): ContactValidationResult {
   const fieldErrors: Record<string, string> = {};
 
   if (data.name.length < 2) {
-    fieldErrors.name = "Please enter your name.";
+    fieldErrors.name = messages.nameRequired;
   }
 
   if (!data.email) {
-    fieldErrors.email = "Email is required.";
+    fieldErrors.email = messages.emailRequired;
   } else if (!EMAIL_PATTERN.test(data.email)) {
-    fieldErrors.email = "Please enter a valid email address.";
+    fieldErrors.email = messages.emailInvalid;
   }
 
   if (data.company.length > 120) {
-    fieldErrors.company = "Company name is too long.";
+    fieldErrors.company = messages.companyTooLong;
   }
 
   if (data.message.length < 20) {
-    fieldErrors.message =
-      "Please share a bit more detail (at least 20 characters).";
+    fieldErrors.message = messages.messageTooShort;
   } else if (data.message.length > 5000) {
-    fieldErrors.message = "Message is too long (max 5,000 characters).";
+    fieldErrors.message = messages.messageTooLong;
   }
 
   if (Object.keys(fieldErrors).length > 0) {
     return {
       ok: false,
       fieldErrors,
-      message: "Please fix the errors below.",
+      message: messages.formError,
     };
   }
 
@@ -59,11 +69,10 @@ function isLocalDev(): boolean {
 }
 
 export async function submitContactPayload(
-  data: ContactPayload
+  data: ContactPayload,
+  successMessage: string,
+  errorMessage: string
 ): Promise<{ success: boolean; message: string }> {
-  const successMessage =
-    "Thanks — your message is in. I'll reply personally within 24 hours.";
-
   if (isLocalDev()) {
     console.info("[contact] Netlify Forms (local dev — not sent):", data);
     return { success: true, message: successMessage };
@@ -86,17 +95,11 @@ export async function submitContactPayload(
     });
 
     if (!response.ok) {
-      return {
-        success: false,
-        message: "Failed to send your message. Please try again.",
-      };
+      return { success: false, message: errorMessage };
     }
 
     return { success: true, message: successMessage };
   } catch {
-    return {
-      success: false,
-      message: "Failed to send your message. Please try again.",
-    };
+    return { success: false, message: errorMessage };
   }
 }

@@ -4,9 +4,9 @@ import { PrivacyPolicyContent } from "@/components/legal/PrivacyPolicyContent";
 import { buildHreflangAlternates } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Tietosuojaseloste",
+  title: "Privacy Policy",
   description:
-    "Tietosuojaseloste: miten yhteystietolomakkeen tiedot käsitellään ja mitä oikeuksia sinulla on.",
+    "Privacy policy: how contact form data is processed and what rights you have.",
   robots: { index: true, follow: true },
   alternates: buildHreflangAlternates({
     fi: "/tietosuoja",
@@ -15,15 +15,15 @@ export const metadata: Metadata = {
   }),
 };
 
-export default function TietosuojaPage() {
+export default function PrivacyPage() {
   return (
     <LegalPageLayout
-      title="Tietosuojaseloste"
-      backHref="/"
-      backLabel="Takaisin etusivulle"
-      locale="fi"
+      title="Privacy Policy"
+      backHref="/en"
+      backLabel="Back to home"
+      locale="en"
     >
-      <PrivacyPolicyContent locale="fi" />
+      <PrivacyPolicyContent locale="en" />
     </LegalPageLayout>
   );
 }
