@@ -41,10 +41,13 @@ export function WorkflowHero() {
           <GitBranch className="w-4 h-4 text-green-400" />
           Free workflow demo — zero risk
         </p>
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent max-w-4xl mx-auto">
-          Custom workflow software
-          <br />
-          built around how you operate.
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.2] max-w-4xl mx-auto">
+          <span className="block bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent pb-1">
+            Custom workflow software
+          </span>
+          <span className="block bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent pb-1">
+            built around how you operate.
+          </span>
         </h1>
         <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto">
           I design and ship workflow systems that replace spreadsheets,

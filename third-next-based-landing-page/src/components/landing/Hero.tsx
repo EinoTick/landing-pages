@@ -18,10 +18,13 @@ export function Hero({ content }: HeroProps) {
         transition={{ duration: 0.6 }}
         className="space-y-4"
       >
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
-          {content.titleLine1}
-          <br />
-          {content.titleLine2}
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.2] max-w-5xl mx-auto">
+          <span className="block bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent pb-1">
+            {content.titleLine1}
+          </span>
+          <span className="block bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent pb-1">
+            {content.titleLine2}
+          </span>
         </h1>
         <p className="inline-flex items-center rounded-full border border-green-400/30 bg-green-400/10 px-4 py-1.5 text-sm font-medium text-green-300">
           {content.badge}

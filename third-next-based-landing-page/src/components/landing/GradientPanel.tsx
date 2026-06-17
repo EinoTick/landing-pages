@@ -62,7 +62,7 @@ export function GradientHeading({
   return (
     <Tag
       className={cn(
-        "bg-clip-text text-transparent font-bold tracking-tight",
+        "bg-clip-text text-transparent font-bold tracking-tight leading-[1.2] pb-0.5",
         className
       )}
       style={gradientHeadingStyle}
