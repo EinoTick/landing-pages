@@ -9,6 +9,12 @@ import { Button } from "@/components/ui/button";
 export function WorkflowHero() {
   return (
     <div className="relative z-10 text-center space-y-8 py-16 sm:py-20 px-4">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 flex justify-center"
+      >
+        <div className="mt-8 h-[61.6rem] w-[56rem] max-w-[92vw] -translate-y-[300px] rounded-[50%] bg-[radial-gradient(ellipse_100%_110%_at_50%_45%,rgba(147,197,253,0.14)_0%,rgba(125,211,252,0.10)_28%,rgba(96,165,250,0.06)_50%,rgba(59,130,246,0.03)_68%,transparent_85%)] blur-3xl opacity-75" />
+      </div>
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
