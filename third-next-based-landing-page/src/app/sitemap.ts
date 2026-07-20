@@ -1,80 +1,77 @@
 import type { MetadataRoute } from "next";
-import { getSiteUrl, sitePaths } from "@/lib/site";
+import {
+  absoluteUrl,
+  buildSitemapLanguageAlternates,
+  sitePaths,
+} from "@/lib/site";
 
 export const dynamic = "force-static";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const base = getSiteUrl();
-  const homeFi = `${base}${sitePaths.home.fi}`;
-  const homeEn = `${base}${sitePaths.home.en}`;
-  const privacyFi = `${base}${sitePaths.privacy.fi}`;
-  const privacyEn = `${base}${sitePaths.privacy.en}`;
-  const workflowEn = `${base}${sitePaths.workflow.en}`;
+type SitemapEntry = MetadataRoute.Sitemap[number];
 
+function sitemapEntry(
+  path: string,
+  options: {
+    changeFrequency: NonNullable<SitemapEntry["changeFrequency"]>;
+    priority: number;
+    hreflang?: Parameters<typeof buildSitemapLanguageAlternates>[0];
+  }
+): SitemapEntry {
+  const { hreflang, ...rest } = options;
+
+  return {
+    url: absoluteUrl(path),
+    lastModified: new Date(),
+    ...rest,
+    ...(hreflang ? { alternates: buildSitemapLanguageAlternates(hreflang) } : {}),
+  };
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    {
-      url: homeFi,
-      lastModified: new Date(),
+    sitemapEntry(sitePaths.home.fi, {
       changeFrequency: "monthly",
       priority: 1,
-      alternates: {
-        languages: {
-          fi: homeFi,
-          en: homeEn,
-          "x-default": homeFi,
-        },
+      hreflang: {
+        fi: sitePaths.home.fi,
+        en: sitePaths.home.en,
+        xDefault: sitePaths.home.fi,
       },
-    },
-    {
-      url: homeEn,
-      lastModified: new Date(),
+    }),
+    sitemapEntry(sitePaths.home.en, {
       changeFrequency: "monthly",
       priority: 1,
-      alternates: {
-        languages: {
-          fi: homeFi,
-          en: homeEn,
-          "x-default": homeFi,
-        },
+      hreflang: {
+        fi: sitePaths.home.fi,
+        en: sitePaths.home.en,
+        xDefault: sitePaths.home.fi,
       },
-    },
-    {
-      url: workflowEn,
-      lastModified: new Date(),
+    }),
+    sitemapEntry(sitePaths.workflow.en, {
       changeFrequency: "monthly",
       priority: 0.8,
-      alternates: {
-        languages: {
-          en: workflowEn,
-          "x-default": workflowEn,
-        },
+      hreflang: {
+        en: sitePaths.workflow.en,
+        xDefault: sitePaths.workflow.en,
       },
-    },
-    {
-      url: privacyFi,
-      lastModified: new Date(),
+    }),
+    sitemapEntry(sitePaths.privacy.fi, {
       changeFrequency: "yearly",
       priority: 0.3,
-      alternates: {
-        languages: {
-          fi: privacyFi,
-          en: privacyEn,
-          "x-default": privacyFi,
-        },
+      hreflang: {
+        fi: sitePaths.privacy.fi,
+        en: sitePaths.privacy.en,
+        xDefault: sitePaths.privacy.fi,
       },
-    },
-    {
-      url: privacyEn,
-      lastModified: new Date(),
+    }),
+    sitemapEntry(sitePaths.privacy.en, {
       changeFrequency: "yearly",
       priority: 0.3,
-      alternates: {
-        languages: {
-          fi: privacyFi,
-          en: privacyEn,
-          "x-default": privacyFi,
-        },
+      hreflang: {
+        fi: sitePaths.privacy.fi,
+        en: sitePaths.privacy.en,
+        xDefault: sitePaths.privacy.fi,
       },
-    },
+    }),
   ];
 }

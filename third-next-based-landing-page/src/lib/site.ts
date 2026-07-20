@@ -26,9 +26,7 @@ type HreflangPaths = {
   xDefault?: string;
 };
 
-export function buildHreflangAlternates(
-  paths: HreflangPaths
-): NonNullable<Metadata["alternates"]> {
+function buildLanguageMap(paths: HreflangPaths): Record<string, string> {
   const languages: Record<string, string> = {};
 
   if (paths.fi) languages.fi = absoluteUrl(paths.fi);
@@ -37,7 +35,19 @@ export function buildHreflangAlternates(
   const xDefault = paths.xDefault ?? paths.fi ?? paths.en;
   if (xDefault) languages["x-default"] = absoluteUrl(xDefault);
 
-  return { languages };
+  return languages;
+}
+
+export function buildHreflangAlternates(
+  paths: HreflangPaths
+): NonNullable<Metadata["alternates"]> {
+  return { languages: buildLanguageMap(paths) };
+}
+
+export function buildSitemapLanguageAlternates(
+  paths: HreflangPaths
+): { languages: Record<string, string> } {
+  return { languages: buildLanguageMap(paths) };
 }
 
 export function alternateLocale(locale: Locale): Locale {
