@@ -45,7 +45,7 @@ export function PerformanceCard({ content }: PerformanceCardProps) {
               <span className="text-blue-400 font-semibold">{content.lighthouseValue}</span>
             </div>
             <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-              <motion.div className="h-full bg-gradient-to-r from-blue-500 to-cyan-500" initial={{ width: 0 }} animate={{ width: "98%" }} transition={{ duration: 1, delay: 0.7 }} />
+              <motion.div className="h-full bg-gradient-to-r from-blue-500 to-cyan-500" initial={{ width: 0 }} animate={{ width: "95%" }} transition={{ duration: 1, delay: 0.7 }} />
             </div>
           </div>
           <div className="flex items-center gap-2 pt-2">

@@ -75,23 +75,16 @@ const cartItems = [
 
 const testFunction = () => {
   console.log('testFunction');
-  console.log(megaCheckout(cart))
+  console.log(anagramVerifier(word2A, word2B))
 }
 
+const word1A = "listen";
+const word1B = "silent";
 
-const cart = [
-  { name: "Laptop", price: 1000, quantity: 1 },
-  { name: "Mouse", price: 50, quantity: 2 },
-  { name: "Keyboard", price: 100, quantity: 1 },
-  { name: "Monitor", price: 300, quantity: 2 }
-];
+const word2A = "hello";
+const word2B = "world";
 
 
-const megaCheckout = (cart) => {
-  return cart.reduce((acc, item) => {
-    const priceOfItems = item.quantity * item.price
-    acc.totalRevenue += priceOfItems
-    acc.totalItems = acc.totalItems + item.quantity
-    return acc
-  }, {totalItems: 0, totalRevenue: 0})
+const anagramVerifier = (str1, str2) => {
+  return str1.split('').sort().join('') === str2.split('').sort().join('')
 }
