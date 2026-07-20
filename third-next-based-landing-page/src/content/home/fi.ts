@@ -52,7 +52,7 @@ export const fiHomeContent: HomeContent = {
     loadTimeLabel: "Latausaika",
     loadTimeValue: "< 1 s",
     lighthouseLabel: "Lighthouse-pisteet",
-    lighthouseValue: "98+",
+    lighthouseValue: "95+",
     footerNote: "Code splitting ja lazy loading",
   },
   recentWork: {

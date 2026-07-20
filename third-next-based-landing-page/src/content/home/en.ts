@@ -51,7 +51,7 @@ export const enHomeContent: HomeContent = {
     loadTimeLabel: "Load Time",
     loadTimeValue: "< 1s",
     lighthouseLabel: "Lighthouse Score",
-    lighthouseValue: "98+",
+    lighthouseValue: "95+",
     footerNote: "Code splitting & lazy loading",
   },
   recentWork: {
