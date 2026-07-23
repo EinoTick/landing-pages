@@ -81,7 +81,7 @@ const enContactContent: ContactContent = {
   success: {
     heading: "Message received",
     message:
-      "Thanks — your message is in. I'll reply personally within 24 hours.",
+      "Thanks — your message is in. I'll get back to you personally within 1–2 business days.",
   },
   error: {
     sendFailed: "Failed to send your message. Please try again.",
@@ -134,7 +134,7 @@ const fiContactContent: ContactContent = {
   success: {
     heading: "Viesti vastaanotettu",
     message:
-      "Kiitos — viestisi on perillä. Vastaan henkilökohtaisesti 24 tunnin sisällä.",
+      "Kiitos — viestisi on perillä. Vastaan henkilökohtaisesti 1–2 arkipäivän kuluessa.",
   },
   error: {
     sendFailed: "Viestin lähetys epäonnistui. Yritä uudelleen.",
