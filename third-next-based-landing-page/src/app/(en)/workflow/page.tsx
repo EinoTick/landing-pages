@@ -9,20 +9,22 @@ import { WorkflowPricing } from "@/components/workflow/WorkflowPricing";
 import { WorkflowUseCases } from "@/components/workflow/WorkflowUseCases";
 import { WorkflowWhyUs } from "@/components/workflow/WorkflowWhyUs";
 import { getHomeContent } from "@/content/home";
-import { buildHreflangAlternates, siteOgImage, sitePaths } from "@/lib/site";
+import { buildHreflangAlternates, buildPageOpenGraph, siteOgImage, sitePaths } from "@/lib/site";
+
+const title = "Workflow Software — ET Logic";
+const description =
+  "Custom workflow software for teams replacing spreadsheets and manual hand-offs. Process automation, approvals, integrations, and audit trails—built by a senior engineer.";
 
 export const metadata: Metadata = {
-  title: "Workflow Software — ET Logic",
-  description:
-    "Custom workflow software for teams replacing spreadsheets and manual hand-offs. Process automation, approvals, integrations, and audit trails—built by a senior engineer.",
-  openGraph: {
-    title: "Workflow Software — ET Logic",
+  title,
+  description,
+  openGraph: buildPageOpenGraph({
+    title,
     description:
       "Custom workflow software built around how your team actually operates.",
-    type: "website",
     locale: "en_US",
-    images: [siteOgImage],
-  },
+    path: sitePaths.workflow.en,
+  }),
   twitter: {
     card: "summary_large_image",
     images: [siteOgImage.url],
@@ -68,6 +70,7 @@ export default function WorkflowPage() {
         <Footer
           locale="en"
           logoHref="/workflow"
+          showLanguageSwitcher={false}
           content={{
             ...enFooter,
             navLinks: workflowNavLinks,

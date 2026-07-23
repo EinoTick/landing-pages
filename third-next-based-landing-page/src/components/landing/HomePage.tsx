@@ -30,7 +30,7 @@ export function HomePage({ locale }: HomePageProps) {
       <div className="relative z-10">
         <Hero content={content.hero} />
         <TechStack content={content.techStack} />
-        <div className="max-w-7xl mx-auto px-4 pb-20">
+        <div id="services" className="max-w-7xl mx-auto px-4 pb-20 scroll-mt-20">
           <div className="grid grid-cols-12 gap-4">
             <FullStackCard content={content.fullStackCard} />
             <DevOpsCard content={content.devOpsCard} />
@@ -40,9 +40,7 @@ export function HomePage({ locale }: HomePageProps) {
         </div>
         <RecentWork content={content.recentWork} />
         <WhyUs content={content.whyUs} />
-        <section id="pricing">
-          <PricingCards content={content.pricing} />
-        </section>
+        <PricingCards content={content.pricing} />
         <AboutMe content={content.about} />
         <ContactForm locale={locale} content={content.contact} />
         <Footer locale={locale} content={content.footer} />

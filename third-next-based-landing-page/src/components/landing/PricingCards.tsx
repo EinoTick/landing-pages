@@ -12,7 +12,7 @@ type PricingCardsProps = {
 
 export function PricingCards({ content }: PricingCardsProps) {
   return (
-    <section className="py-24 px-4">
+    <section id="pricing" className="py-24 px-4 scroll-mt-20">
       <div className="max-w-7xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
           <h2 className="text-4xl font-bold tracking-tight text-white mb-4">{content.title}</h2>

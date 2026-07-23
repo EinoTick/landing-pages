@@ -42,7 +42,7 @@ export const fiHomeContent: HomeContent = {
     description: "Kattava automaattinen testaus",
     items: [
       "Vitest-yksikkötestit",
-      "Cypress E2E -testit",
+      "Playwright E2E -testit",
       "TypeScript-tyypitys",
     ],
   },
@@ -189,7 +189,7 @@ export const fiHomeContent: HomeContent = {
   },
   footer: {
     navLinks: [
-      { label: "Palvelut", href: "#" },
+      { label: "Palvelut", href: "#services" },
       { label: "Referenssit", href: "#work" },
       { label: "Hinnoittelu", href: "#pricing" },
       { label: "Tietoa", href: "#about" },

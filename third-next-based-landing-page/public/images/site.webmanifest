@@ -1,6 +1,11 @@
 {
   "name": "ET Logic",
   "short_name": "ET Logic",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#020617",
+  "background_color": "#020617",
   "icons": [
     {
       "src": "/images/web-app-manifest-192x192.png",
@@ -14,8 +19,5 @@
       "type": "image/png",
       "purpose": "maskable"
     }
-  ],
-  "theme_color": "#020617",
-  "background_color": "#020617",
-  "display": "standalone"
+  ]
 }

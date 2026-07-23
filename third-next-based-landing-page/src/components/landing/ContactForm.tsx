@@ -40,9 +40,13 @@ const labelClassName = "text-base font-semibold text-white/90";
 
 const optionalLabelClassName = "text-sm font-normal text-white/40";
 
-function FieldError({ message }: { message?: string }) {
+function FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null;
-  return <p className="text-sm text-red-400/90 mt-1.5">{message}</p>;
+  return (
+    <p id={id} className="text-sm text-red-400/90 mt-1.5" role="alert">
+      {message}
+    </p>
+  );
 }
 
 function readPayload(form: HTMLFormElement): ContactPayload {
@@ -168,13 +172,13 @@ export function ContactForm({ locale, content }: ContactFormProps) {
               <div className="grid sm:grid-cols-2 gap-6 sm:gap-7">
                 <div className="space-y-2.5">
                   <Label htmlFor="name" className={labelClassName}>{t.labels.name}</Label>
-                  <Input id="name" name="name" type="text" autoComplete="name" placeholder={t.placeholders.name} required className={inputClassName} aria-invalid={Boolean(fieldErrors.name)} />
-                  <FieldError message={fieldErrors.name} />
+                  <Input id="name" name="name" type="text" autoComplete="name" placeholder={t.placeholders.name} required className={inputClassName} aria-invalid={Boolean(fieldErrors.name)} aria-describedby={fieldErrors.name ? "name-error" : undefined} />
+                  <FieldError id="name-error" message={fieldErrors.name} />
                 </div>
                 <div className="space-y-2.5">
                   <Label htmlFor="email" className={labelClassName}>{t.labels.email}</Label>
-                  <Input id="email" name="email" type="email" autoComplete="email" placeholder={t.placeholders.email} required className={inputClassName} aria-invalid={Boolean(fieldErrors.email)} />
-                  <FieldError message={fieldErrors.email} />
+                  <Input id="email" name="email" type="email" autoComplete="email" placeholder={t.placeholders.email} required className={inputClassName} aria-invalid={Boolean(fieldErrors.email)} aria-describedby={fieldErrors.email ? "email-error" : undefined} />
+                  <FieldError id="email-error" message={fieldErrors.email} />
                 </div>
               </div>
 
@@ -184,8 +188,8 @@ export function ContactForm({ locale, content }: ContactFormProps) {
                     {t.labels.company}{" "}
                     <span className={optionalLabelClassName}>{t.labels.companyOptional}</span>
                   </Label>
-                  <Input id="company" name="company" type="text" autoComplete="organization" placeholder={t.placeholders.company} className={inputClassName} aria-invalid={Boolean(fieldErrors.company)} />
-                  <FieldError message={fieldErrors.company} />
+                  <Input id="company" name="company" type="text" autoComplete="organization" placeholder={t.placeholders.company} className={inputClassName} aria-invalid={Boolean(fieldErrors.company)} aria-describedby={fieldErrors.company ? "company-error" : undefined} />
+                  <FieldError id="company-error" message={fieldErrors.company} />
                 </div>
                 <div className="space-y-2.5">
                   <Label htmlFor="budget" className={labelClassName}>
@@ -202,8 +206,8 @@ export function ContactForm({ locale, content }: ContactFormProps) {
 
               <div className="space-y-2.5">
                 <Label htmlFor="message" className={labelClassName}>{t.labels.message}</Label>
-                <Textarea id="message" name="message" rows={6} placeholder={t.placeholders.message} required className={textareaClassName} aria-invalid={Boolean(fieldErrors.message)} />
-                <FieldError message={fieldErrors.message} />
+                <Textarea id="message" name="message" rows={6} placeholder={t.placeholders.message} required className={textareaClassName} aria-invalid={Boolean(fieldErrors.message)} aria-describedby={fieldErrors.message ? "message-error" : undefined} />
+                <FieldError id="message-error" message={fieldErrors.message} />
               </div>
 
               <Button type="submit" size="lg" className="w-full group h-auto py-4 px-8 text-base font-semibold gap-2 transition-transform duration-200 hover:scale-[1.01] active:scale-[1.005]" disabled={pending}>

@@ -1,21 +1,26 @@
 import type { Metadata } from "next";
 import { LegalPageLayout } from "@/components/legal/LegalPageLayout";
 import { PrivacyPolicyContent } from "@/components/legal/PrivacyPolicyContent";
-import { buildHreflangAlternates, siteOgImage } from "@/lib/site";
+import {
+  buildHreflangAlternates,
+  buildPageOpenGraph,
+  siteOgImage,
+} from "@/lib/site";
+
+const title = "Privacy Policy";
+const description =
+  "Privacy policy: how contact form data is processed and what rights you have.";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description:
-    "Privacy policy: how contact form data is processed and what rights you have.",
+  title,
+  description,
   robots: { index: true, follow: true },
-  openGraph: {
-    title: "Privacy Policy",
-    description:
-      "Privacy policy: how contact form data is processed and what rights you have.",
-    type: "website",
+  openGraph: buildPageOpenGraph({
+    title,
+    description,
     locale: "en_US",
-    images: [siteOgImage],
-  },
+    path: "/en/privacy",
+  }),
   twitter: {
     card: "summary_large_image",
     images: [siteOgImage.url],

@@ -41,7 +41,7 @@ export const enHomeContent: HomeContent = {
     description: "Comprehensive test coverage",
     items: [
       "Vitest Unit Tests",
-      "Cypress E2E Tests",
+      "Playwright E2E Tests",
       "Type Safety with TypeScript",
     ],
   },
@@ -188,7 +188,7 @@ export const enHomeContent: HomeContent = {
   },
   footer: {
     navLinks: [
-      { label: "Services", href: "#" },
+      { label: "Services", href: "#services" },
       { label: "Work", href: "#work" },
       { label: "Pricing", href: "#pricing" },
       { label: "About", href: "#about" },

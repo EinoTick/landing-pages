@@ -1,19 +1,25 @@
 import type { Metadata } from "next";
 import { HomePage } from "@/components/landing/HomePage";
-import { buildHreflangAlternates, siteOgImage } from "@/lib/site";
+import {
+  buildHreflangAlternates,
+  buildPageOpenGraph,
+  siteOgImage,
+} from "@/lib/site";
+
+const title = "Senior Full-Stack Engineer — SaaS MVPs & Custom Platforms";
+const description =
+  "Production-ready web applications and custom platforms. Senior-level development for SaaS MVPs—built by one engineer who owns the entire stack. Free demo first.";
 
 export const metadata: Metadata = {
-  title: "Senior Full-Stack Engineer — SaaS MVPs & Custom Platforms",
-  description:
-    "Production-ready web applications and custom platforms. Senior-level development for SaaS MVPs—built by one engineer who owns the entire stack. Free demo first.",
-  openGraph: {
-    title: "Senior Full-Stack Engineer — SaaS MVPs & Custom Platforms",
+  title,
+  description,
+  openGraph: buildPageOpenGraph({
+    title,
     description:
       "Production-ready web applications and custom platforms. Free demo before you commit.",
-    type: "website",
     locale: "en_US",
-    images: [siteOgImage],
-  },
+    path: "/en",
+  }),
   twitter: {
     card: "summary_large_image",
     images: [siteOgImage.url],

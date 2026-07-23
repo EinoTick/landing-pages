@@ -45,7 +45,10 @@ export function LegalPageLayout({
 
         <footer className="mt-16 pt-8 border-t border-white/10 text-xs text-white/40">
           <p>
-            &copy; {new Date().getFullYear()} Eino — Senior Full-Stack Engineer
+            &copy; {new Date().getFullYear()} Eino —{" "}
+            {locale === "fi"
+              ? "Senior full-stack -insinööri"
+              : "Senior Full-Stack Engineer"}
           </p>
         </footer>
       </div>

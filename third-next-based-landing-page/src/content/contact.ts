@@ -88,7 +88,8 @@ const enContactContent: ContactContent = {
   },
   privacy: {
     privacyLinkText: "privacy policy",
-    privacyNoticeBefore: "By submitting this form, you agree to the processing of your personal data in accordance with our ",
+    privacyNoticeBefore:
+      "By submitting this form, you acknowledge that your details will be processed as described in our ",
     privacyNoticeAfter: ".",
   },
   sendButton: "Send message",
@@ -142,7 +143,7 @@ const fiContactContent: ContactContent = {
   privacy: {
     privacyLinkText: "tietosuojaselosteen",
     privacyNoticeBefore:
-      "Lähettämällä lomakkeen hyväksyt henkilötietojesi käsittelyn ",
+      "Lähettämällä lomakkeen hyväksyt, että tietojasi käsitellään ",
     privacyNoticeAfter: " mukaisesti.",
   },
   sendButton: "Lähetä viesti",

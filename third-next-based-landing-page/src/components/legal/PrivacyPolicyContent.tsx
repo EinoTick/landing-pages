@@ -19,7 +19,7 @@ function PrivacyPolicyFi() {
     <>
       <section className="space-y-4">
         <p className="text-sm text-white/50">
-          Viimeksi päivitetty: {new Date().toLocaleDateString("fi-FI")}
+          Viimeksi päivitetty: 23.7.2026
         </p>
         <p>
           Tämä seloste kuvaa, miten käsittelen henkilötietoja, kun vierailet
@@ -220,7 +220,7 @@ function PrivacyPolicyEn() {
     <>
       <section className="space-y-4">
         <p className="text-sm text-white/50">
-          Last updated: {new Date().toLocaleDateString("en-GB")}
+          Last updated: 23 July 2026
         </p>
         <p>
           This notice describes how I process personal data when you visit my

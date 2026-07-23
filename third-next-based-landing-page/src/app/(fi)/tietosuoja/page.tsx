@@ -1,21 +1,26 @@
 import type { Metadata } from "next";
 import { LegalPageLayout } from "@/components/legal/LegalPageLayout";
 import { PrivacyPolicyContent } from "@/components/legal/PrivacyPolicyContent";
-import { buildHreflangAlternates, siteOgImage } from "@/lib/site";
+import {
+  buildHreflangAlternates,
+  buildPageOpenGraph,
+  siteOgImage,
+} from "@/lib/site";
+
+const title = "Tietosuojaseloste";
+const description =
+  "Tietosuojaseloste: miten yhteystietolomakkeen tiedot käsitellään ja mitä oikeuksia sinulla on.";
 
 export const metadata: Metadata = {
-  title: "Tietosuojaseloste",
-  description:
-    "Tietosuojaseloste: miten yhteystietolomakkeen tiedot käsitellään ja mitä oikeuksia sinulla on.",
+  title,
+  description,
   robots: { index: true, follow: true },
-  openGraph: {
-    title: "Tietosuojaseloste",
-    description:
-      "Tietosuojaseloste: miten yhteystietolomakkeen tiedot käsitellään ja mitä oikeuksia sinulla on.",
-    type: "website",
+  openGraph: buildPageOpenGraph({
+    title,
+    description,
     locale: "fi_FI",
-    images: [siteOgImage],
-  },
+    path: "/tietosuoja",
+  }),
   twitter: {
     card: "summary_large_image",
     images: [siteOgImage.url],

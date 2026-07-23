@@ -18,13 +18,8 @@ export function Hero({ content }: HeroProps) {
       >
         <div className="mt-10 h-[70.4rem] w-[64rem] max-w-[92vw] -translate-y-[300px] rounded-[50%] bg-[radial-gradient(ellipse_100%_110%_at_50%_45%,rgba(147,197,253,0.14)_0%,rgba(125,211,252,0.10)_28%,rgba(96,165,250,0.06)_50%,rgba(59,130,246,0.03)_68%,transparent_85%)] blur-3xl opacity-75" />
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="space-y-4"
-      >
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.2] max-w-5xl mx-auto">
+      <div className="space-y-4">
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.2] max-w-5xl mx-auto break-words">
           <span className="block bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent pb-1">
             {content.titleLine1}
           </span>
@@ -41,12 +36,12 @@ export function Hero({ content }: HeroProps) {
         <p className="text-base md:text-lg text-white/50 max-w-xl mx-auto">
           {content.description}
         </p>
-      </motion.div>
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ duration: 0.6, delay: 0.15 }}
         className="flex flex-col sm:flex-row items-center justify-center gap-4"
       >
         <Button size="lg" className="group w-full sm:w-auto" asChild>

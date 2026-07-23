@@ -80,10 +80,11 @@ export async function submitContactPayload(
 
   const body = new URLSearchParams({
     "form-name": NETLIFY_CONTACT_FORM_NAME,
+    "bot-field": "",
     name: data.name,
     email: data.email,
     company: data.company,
-    budget: data.budget || "Not specified",
+    budget: data.budget || "—",
     message: data.message,
   });
 

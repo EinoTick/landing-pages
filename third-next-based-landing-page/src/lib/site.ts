@@ -55,6 +55,31 @@ export function buildSitemapLanguageAlternates(
   return { languages: buildLanguageMap(paths) };
 }
 
+/** Open Graph / Twitter image — keep this on page-level openGraph too (page OG replaces layout OG). */
+export const siteOgImage = {
+  url: "/images/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: "ET Logic",
+} as const;
+
+export function buildPageOpenGraph(options: {
+  title: string;
+  description: string;
+  locale: "fi_FI" | "en_US";
+  path: string;
+}): NonNullable<Metadata["openGraph"]> {
+  return {
+    title: options.title,
+    description: options.description,
+    type: "website",
+    locale: options.locale,
+    siteName: "ET Logic",
+    url: absoluteUrl(options.path),
+    images: [siteOgImage],
+  };
+}
+
 /** Shared layout metadata for (fi)/(en) route groups. Canonicals stay page-level. */
 export function buildLocaleLayoutMetadata(locale: Locale): Metadata {
   const ogLocale = locale === "fi" ? "fi_FI" : "en_US";
@@ -103,14 +128,6 @@ export function buildLocaleLayoutMetadata(locale: Locale): Metadata {
     },
   };
 }
-
-/** Open Graph / Twitter image — keep this on page-level openGraph too (page OG replaces layout OG). */
-export const siteOgImage = {
-  url: "/images/og-image.png",
-  width: 1200,
-  height: 630,
-  alt: "ET Logic",
-} as const;
 
 export function alternateLocale(locale: Locale): Locale {
   return locale === "fi" ? "en" : "fi";
