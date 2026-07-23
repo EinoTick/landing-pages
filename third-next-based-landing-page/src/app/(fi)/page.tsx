@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { HomePage } from "@/components/landing/HomePage";
-import { buildHreflangAlternates } from "@/lib/site";
+import { buildHreflangAlternates, siteOgImage } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Senior full-stack -insinööri — SaaS-MVP:t ja räätälöidyt alustat",
@@ -12,6 +12,11 @@ export const metadata: Metadata = {
       "Tuotantovalmiit verkkosovellukset ja räätälöidyt alustat. Ilmainen demo ennen sitoutumista.",
     type: "website",
     locale: "fi_FI",
+    images: [siteOgImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [siteOgImage.url],
   },
   alternates: buildHreflangAlternates({
     fi: "/",

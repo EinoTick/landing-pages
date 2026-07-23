@@ -62,15 +62,30 @@ export function buildLocaleLayoutMetadata(locale: Locale): Metadata {
   return {
     metadataBase: new URL(getSiteUrl()),
     applicationName: "ET Logic",
+    manifest: "/images/site.webmanifest",
     icons: {
       icon: [
-        { url: "/favicon.ico", sizes: "48x48" },
-        { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-        { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+        { url: "/images/favicon.ico", sizes: "48x48" },
+        { url: "/images/favicon.svg", type: "image/svg+xml" },
+        {
+          url: "/images/favicon-96x96.png",
+          sizes: "96x96",
+          type: "image/png",
+        },
+        {
+          url: "/images/web-app-manifest-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          url: "/images/web-app-manifest-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
       ],
       apple: [
         {
-          url: "/apple-touch-icon.png",
+          url: "/images/apple-touch-icon.png",
           sizes: "180x180",
           type: "image/png",
         },
@@ -80,21 +95,22 @@ export function buildLocaleLayoutMetadata(locale: Locale): Metadata {
       type: "website",
       siteName: "ET Logic",
       locale: ogLocale,
-      images: [
-        {
-          url: "/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: "ET Logic",
-        },
-      ],
+      images: [siteOgImage],
     },
     twitter: {
       card: "summary_large_image",
-      images: ["/og-image.png"],
+      images: [siteOgImage.url],
     },
   };
 }
+
+/** Open Graph / Twitter image — keep this on page-level openGraph too (page OG replaces layout OG). */
+export const siteOgImage = {
+  url: "/images/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: "ET Logic",
+} as const;
 
 export function alternateLocale(locale: Locale): Locale {
   return locale === "fi" ? "en" : "fi";

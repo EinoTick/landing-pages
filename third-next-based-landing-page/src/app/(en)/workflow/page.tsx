@@ -9,7 +9,7 @@ import { WorkflowPricing } from "@/components/workflow/WorkflowPricing";
 import { WorkflowUseCases } from "@/components/workflow/WorkflowUseCases";
 import { WorkflowWhyUs } from "@/components/workflow/WorkflowWhyUs";
 import { getHomeContent } from "@/content/home";
-import { buildHreflangAlternates, sitePaths } from "@/lib/site";
+import { buildHreflangAlternates, siteOgImage, sitePaths } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Workflow Software — ET Logic",
@@ -21,6 +21,11 @@ export const metadata: Metadata = {
       "Custom workflow software built around how your team actually operates.",
     type: "website",
     locale: "en_US",
+    images: [siteOgImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [siteOgImage.url],
   },
   alternates: buildHreflangAlternates({
     en: sitePaths.workflow.en,
