@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
+import { buildLocaleLayoutMetadata } from "@/lib/site";
 import "../globals.css";
 
-export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://etlogic.fi"
-  ),
-};
+export const metadata: Metadata = buildLocaleLayoutMetadata("en");
 
 export default function EnLayout({
   children,

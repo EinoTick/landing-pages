@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     fi: "/",
     en: "/en",
     xDefault: "/",
+    canonical: "/en",
   }),
 };
 

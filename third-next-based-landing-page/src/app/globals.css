@@ -15,6 +15,14 @@
   body {
     @apply bg-slate-950 text-slate-50;
   }
+
+  /* Restore clear keyboard focus after Tailwind preflight removes outlines */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  summary:focus-visible {
+    @apply outline-none ring-2 ring-green-500 ring-offset-2 ring-offset-slate-950;
+  }
 }
 
 @layer utilities {

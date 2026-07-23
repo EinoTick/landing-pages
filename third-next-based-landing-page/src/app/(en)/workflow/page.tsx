@@ -25,6 +25,7 @@ export const metadata: Metadata = {
   alternates: buildHreflangAlternates({
     en: sitePaths.workflow.en,
     xDefault: sitePaths.workflow.en,
+    canonical: sitePaths.workflow.en,
   }),
 };
 

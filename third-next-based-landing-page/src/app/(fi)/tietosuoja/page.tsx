@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     fi: "/tietosuoja",
     en: "/en/privacy",
     xDefault: "/tietosuoja",
+    canonical: "/tietosuoja",
   }),
 };
 

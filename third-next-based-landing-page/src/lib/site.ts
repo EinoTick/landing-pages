@@ -24,6 +24,8 @@ type HreflangPaths = {
   fi?: string;
   en?: string;
   xDefault?: string;
+  /** Path for this page's canonical URL, e.g. "/" or "/en/privacy". */
+  canonical?: string;
 };
 
 function buildLanguageMap(paths: HreflangPaths): Record<string, string> {
@@ -41,13 +43,57 @@ function buildLanguageMap(paths: HreflangPaths): Record<string, string> {
 export function buildHreflangAlternates(
   paths: HreflangPaths
 ): NonNullable<Metadata["alternates"]> {
-  return { languages: buildLanguageMap(paths) };
+  return {
+    ...(paths.canonical ? { canonical: absoluteUrl(paths.canonical) } : {}),
+    languages: buildLanguageMap(paths),
+  };
 }
 
 export function buildSitemapLanguageAlternates(
   paths: HreflangPaths
 ): { languages: Record<string, string> } {
   return { languages: buildLanguageMap(paths) };
+}
+
+/** Shared layout metadata for (fi)/(en) route groups. Canonicals stay page-level. */
+export function buildLocaleLayoutMetadata(locale: Locale): Metadata {
+  const ogLocale = locale === "fi" ? "fi_FI" : "en_US";
+
+  return {
+    metadataBase: new URL(getSiteUrl()),
+    applicationName: "ET Logic",
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "48x48" },
+        { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+        { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      ],
+      apple: [
+        {
+          url: "/apple-touch-icon.png",
+          sizes: "180x180",
+          type: "image/png",
+        },
+      ],
+    },
+    openGraph: {
+      type: "website",
+      siteName: "ET Logic",
+      locale: ogLocale,
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: "ET Logic",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: ["/og-image.png"],
+    },
+  };
 }
 
 export function alternateLocale(locale: Locale): Locale {
