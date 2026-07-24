@@ -38,7 +38,7 @@ export function LanguageSwitcher({
           "rounded px-2.5 py-1 transition-colors",
           locale === "fi"
             ? "bg-white/10 text-white"
-            : "text-white/50 hover:text-white/80"
+            : "text-white/70 hover:text-white"
         )}
         aria-current={locale === "fi" ? "page" : undefined}
       >
@@ -51,7 +51,7 @@ export function LanguageSwitcher({
           "rounded px-2.5 py-1 transition-colors",
           locale === "en"
             ? "bg-white/10 text-white"
-            : "text-white/50 hover:text-white/80"
+            : "text-white/70 hover:text-white"
         )}
         aria-current={locale === "en" ? "page" : undefined}
       >

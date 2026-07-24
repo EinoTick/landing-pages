@@ -27,7 +27,7 @@ export function HomePage({ locale }: HomePageProps) {
       <MouseSpotlight />
       <HomeTopBar locale={locale} />
 
-      <div className="relative z-10">
+      <main className="relative z-10">
         <Hero content={content.hero} />
         <TechStack content={content.techStack} />
         <div id="services" className="max-w-7xl mx-auto px-4 pb-20 scroll-mt-20">
@@ -43,8 +43,8 @@ export function HomePage({ locale }: HomePageProps) {
         <PricingCards content={content.pricing} />
         <AboutMe content={content.about} />
         <ContactForm locale={locale} content={content.contact} />
-        <Footer locale={locale} content={content.footer} />
-      </div>
+      </main>
+      <Footer locale={locale} content={content.footer} />
     </div>
   );
 }

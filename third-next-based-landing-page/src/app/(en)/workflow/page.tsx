@@ -51,7 +51,7 @@ export default function WorkflowPage() {
     <div className="min-h-screen bg-slate-950 relative overflow-hidden">
       <MouseSpotlight />
 
-      <div className="relative z-10">
+      <main className="relative z-10">
         <WorkflowHero />
         <WorkflowCapabilities />
         <WorkflowUseCases />
@@ -67,17 +67,17 @@ export default function WorkflowPage() {
               "Describe the process you're trying to fix. If it's a good fit, I'll build a free demo—no contract and no cost. Not the right match? I'll tell you straight.",
           }}
         />
-        <Footer
-          locale="en"
-          logoHref="/workflow"
-          showLanguageSwitcher={false}
-          content={{
-            ...enFooter,
-            navLinks: workflowNavLinks,
-            tagline: "Custom workflow software & process automation",
-          }}
-        />
-      </div>
+      </main>
+      <Footer
+        locale="en"
+        logoHref="/workflow"
+        showLanguageSwitcher={false}
+        content={{
+          ...enFooter,
+          navLinks: workflowNavLinks,
+          tagline: "Custom workflow software & process automation",
+        }}
+      />
     </div>
   );
 }

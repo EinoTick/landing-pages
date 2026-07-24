@@ -33,15 +33,17 @@ export function LegalPageLayout({
           </Link>
         </div>
 
-        <header className="mb-10 pb-8 border-b border-white/10">
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            {title}
-          </h1>
-        </header>
+        <main>
+          <header className="mb-10 pb-8 border-b border-white/10">
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+              {title}
+            </h1>
+          </header>
 
-        <article className="prose-legal space-y-8 text-white/80 leading-relaxed">
-          {children}
-        </article>
+          <article className="prose-legal space-y-8 text-white/80 leading-relaxed">
+            {children}
+          </article>
+        </main>
 
         <footer className="mt-16 pt-8 border-t border-white/10 text-xs text-white/40">
           <p>
